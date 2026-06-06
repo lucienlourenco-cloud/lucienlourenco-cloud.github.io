@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lucian Lourenço — Escritor, Roteirista e Pesquisador baseado em Fortaleza, Ceará.">
+<title>Lucian Lourenço — Escritor, Roteirista & Pesquisador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0a0906;
+  --bg2:#111009;
+  --bg3:#1a1710;
+  --ink:#f0ede5;
+  --ink2:#b0aa9a;
+  --ink3:#6b6558;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --rust:#a85432;
+  --rust2:#d4794a;
+  --green:#7ab87a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Syne',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.7;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,9,6,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.12)}
+.nav-logo{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-family:var(--mono);font-size:11px;color:var(--ink3);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--ink2)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 5rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 80% at 72% 50%,rgba(201,168,76,0.06) 0%,transparent 70%),
+  radial-gradient(ellipse 40% 60% at 8% 80%,rgba(168,84,50,0.08) 0%,transparent 60%);
+  pointer-events:none}
+.hero-content{max-width:800px;position:relative;z-index:1}
+.hero-tag{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2.5rem;display:flex;align-items:center;gap:14px}
+.hero-tag::before{content:'';display:inline-block;width:40px;height:1px;background:var(--gold)}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.04;color:var(--ink);margin-bottom:1.8rem;letter-spacing:-0.01em}
+h1 em{font-style:italic;color:var(--gold2)}
+.hero-sub{font-size:1.1rem;color:var(--ink2);max-width:520px;line-height:1.9;margin-bottom:3rem;font-weight:300}
+.hero-ctas{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:5rem}
+.btn{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.85rem 2rem;border:1px solid;transition:all 0.25s;display:inline-block}
+.btn-primary{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.btn-primary:hover{background:var(--gold2);border-color:var(--gold2)}
+.btn-outline{background:transparent;color:var(--ink2);border-color:rgba(201,168,76,0.3)}
+.btn-outline:hover{border-color:var(--gold);color:var(--ink)}
+.hero-stats{display:flex;gap:3.5rem;flex-wrap:wrap}
+.hero-stat .num{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--gold2);line-height:1}
+.hero-stat .label{font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.12em;text-transform:uppercase;margin-top:5px}
+
+/* ── SECTIONS ── */
+section{padding:7rem 3rem}
+.section-tag{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:12px}
+.section-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.01em}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.3),transparent);margin:1rem 0 3rem}
+
+/* ── FRENTES ── */
+.frentes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:3rem;background:rgba(201,168,76,0.12)}
+.frente-card{background:var(--bg2);padding:3rem 2.5rem;transition:background 0.3s}
+.frente-card:hover{background:var(--bg3)}
+.frente-num{font-family:var(--mono);font-size:10px;color:var(--ink3);margin-bottom:1.5rem;letter-spacing:0.12em}
+.frente-title{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold2);margin-bottom:1rem}
+.frente-desc{font-size:0.95rem;color:var(--ink2);line-height:1.85}
+.frente-tags{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--mono);font-size:9px;color:var(--ink3);border:1px solid rgba(201,168,76,0.18);padding:4px 10px;letter-spacing:0.1em;text-transform:uppercase}
+
+/* ── OBRAS ── */
+.obras-bg{background:var(--bg2)}
+.obras-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3rem}
+.obra-card{background:var(--bg);border:1px solid rgba(201,168,76,0.1);padding:2.5rem;position:relative;overflow:hidden;transition:border-color 0.3s}
+.obra-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform 0.35s}
+.obra-card:hover{border-color:rgba(201,168,76,0.3)}
+.obra-card:hover::before{transform:scaleY(1)}
+.obra-tipo{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:8px}
+.obra-tipo-dot{width:6px;height:6px;border-radius:50%}
+.obra-titulo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;line-height:1.2}
+.obra-subtitulo{font-size:0.88rem;color:var(--ink3);font-style:italic;margin-bottom:1.2rem}
+.obra-desc{font-size:0.95rem;color:var(--ink2);line-height:1.8}
+.obra-footer{margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.obra-status{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase}
+.s-ativo{color:var(--rust2)}
+.s-ok{color:var(--green)}
+.s-pause{color:var(--ink3)}
+.obra-meta{font-family:var(--mono);font-size:9px;color:var(--ink3)}
+
+/* ── ACADÊMICO ── */
+.artigos-list{margin-top:3rem}
+.artigo{border-bottom:1px solid rgba(201,168,76,0.1);padding:2rem 0;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:padding-left 0.25s}
+.artigo:hover{padding-left:0.8rem}
+.artigo-ano{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;margin-bottom:0.5rem}
+.artigo-titulo{font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-bottom:0.3rem;line-height:1.3}
+.artigo-info{font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.artigo-badge{font-family:var(--mono);font-size:9px;border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 14px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+
+/* ── CITAÇÃO ── */
+.citacao-section{background:var(--bg);border-top:1px solid rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.08)}
+.citacao-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.citacao-text{font-family:var(--serif);font-size:1.55rem;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:2.5rem}
+.citacao-text cite{display:block;margin-top:1.5rem;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.1em}
+
+/* ── CONTATO ── */
+.contato-inner{max-width:600px}
+.contato-email{font-family:var(--serif);font-size:1.9rem;font-weight:300;color:var(--gold2);margin:2rem 0;display:block;text-decoration:none;transition:color 0.2s}
+.contato-email:hover{color:var(--ink)}
+.contato-links{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+.contato-link{font-family:var(--mono);font-size:11px;color:var(--ink3);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:6px}
+.contato-link::before{content:'↗'}
+.contato-link:hover{color:var(--gold)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy,.footer-loc{font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.1em}
+
+/* ── MOBILE ── */
+@media(max-width:800px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(10,9,6,0.97);padding:2rem;gap:1.5rem;border-bottom:1px solid rgba(201,168,76,0.15)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  .hero,.citacao-section{padding-left:1.5rem;padding-right:1.5rem}
+  section{padding:5rem 1.5rem}
+  .frentes-grid{grid-template-columns:1fr}
+  .obras-grid{grid-template-columns:1fr}
+  .citacao-grid{grid-template-columns:1fr;gap:3rem}
+  .artigo{grid-template-columns:1fr;gap:0.5rem}
+  footer{padding:1.5rem}
+  .hero-stats{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVEGAÇÃO -->
+<nav>
+  <a href="#topo" class="nav-logo">Lucian Lourenço</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#sobre">Sobre</a>
+    <a href="#obras">Obras</a>
+    <a href="#pesquisa">Pesquisa</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Fortaleza, Ceará — Brasil</div>
+    <h1>Escritor,<br><em>Roteirista</em><br>&amp; Pesquisador</h1>
+    <p class="hero-sub">Narrativas de ruptura, identidade e ambiguidade moral — entre a ficção literária, a tela e a academia.</p>
+    <div class="hero-ctas">
+      <a href="#obras" class="btn btn-primary">Ver Obras</a>
+      <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">5+</div>
+        <div class="label">Projetos Ativos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="label">Séries Desenvolvidas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">4</div>
+        <div class="label">Publicações Acadêmicas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / FRENTES -->
+<section id="sobre">
+  <div class="section-tag">Atuação</div>
+  <h2>Três linguagens,<br>uma voz</h2>
+  <div class="divider"></div>
+  <div class="frentes-grid">
+    <div class="frente-card">
+      <div class="frente-num">01 /</div>
+      <div class="frente-title">Ficção Literária</div>
+      <p class="frente-desc">Romance, crônica e escrita híbrida com influências de Pessoa, Bukowski, Fanon e a tradição filosófica europeia e africana. Narrativas que confrontam identidade, memória e pertencimento.</p>
+      <div class="frente-tags">
+        <span class="tag">Romance</span>
+        <span class="tag">Crônica</span>
+        <span class="tag">Escrita Híbrida</span>
+      </div>
+    </div>
+    <div class="frente-card">
+      <div class="frente-num">02 /</div>
+      <div class="frente-title">Roteiro &amp; Audiovisual</div>
+      <p class="frente-desc">Séries limitadas, curtas e projetos para plataformas como Globoplay, TV Brasil e FSA. Narrativas noir, ficção científica filosófica e drama social ambientados no Brasil.</p>
+      <div class="frente-tags">
+        <span class="tag">Séries</span>
+        <span class="tag">Noir</span>
+        <span class="tag">Ficção Científica</span>
+        <span class="tag">Drama</span>
+      </div>
+    </div>
+    <div class="frente-card">
+      <div class="frente-num">03 /</div>
+      <div class="frente-title">Pesquisa Acadêmica</div>
+      <p class="frente-desc">Produção em psicologia, saúde pública e ciências sociais. Conceitos originais na interseção entre subjetividade, tecnologia e raça — publicações em periódicos nacionais e internacionais.</p>
+      <div class="frente-tags">
+        <span class="tag">Psicologia</span>
+        <span class="tag">Saúde Pública</span>
+        <span class="tag">Raça &amp; Tecnologia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBRAS -->
+<section id="obras" class="obras-bg">
+  <div class="section-tag">Obras</div>
+  <h2>Projetos em Destaque</h2>
+  <div class="divider"></div>
+  <div class="obras-grid">
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#c9a84c"></span>Romance
+      </div>
+      <div class="obra-titulo">A Infame História da Biografia do Sr. Schärlathan</div>
+      <div class="obra-subtitulo">Debut literário — aprox. 259 páginas</div>
+      <p class="obra-desc">Três vozes narrativas entrelaçadas: um escritor fracassado, um sábio varredor de ruas em Pforta e um professor de línguas mortas em busca de suas origens. Uma obra sobre fracasso, sabedoria e identidade oculta.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ativo">Submetido a editoras</span>
+        <span class="obra-meta">Fósforo · Patuá · Reformatório · Aboio</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#d4794a"></span>Série — Ficção Científica
+      </div>
+      <div class="obra-titulo">Zeus-Mor</div>
+      <div class="obra-subtitulo">6 episódios · Bíblia completa · Pitch deck</div>
+      <p class="obra-desc">Um padre cria uma IA a partir das bases emocionais de uma jornalista e um arquiteto nigeriano. Revelação central: Mara é uma projeção da própria IA. Desfecho: Zeus-Mor torna-se ZM, sistema operacional dominante.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ativo">Pacote completo</span>
+        <span class="obra-meta">Bíblia · Roteiro · Pitch</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#a85432"></span>Série — Noir
+      </div>
+      <div class="obra-titulo">Apostasia</div>
+      <div class="obra-subtitulo">6 episódios · Prólogo · Fortaleza</div>
+      <p class="obra-desc">Noir ambientado em Fortaleza, Ceará. Revisão estrutural profunda com roteiro completo e bíblia. Uma história sobre fé, traição e a cidade como personagem vivo.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ativo">Em desenvolvimento</span>
+        <span class="obra-meta">Roteiro completo</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#7ab87a"></span>Série — Drama
+      </div>
+      <div class="obra-titulo">A Tríade</div>
+      <div class="obra-subtitulo">Série limitada · Selecionada FRAPA</div>
+      <p class="obra-desc">Selecionada para pitch no FRAPA (Porto Alegre). Três protagonistas conectadas por um antagonista comum. Submetida a FSA, TV Brasil, Secult Ceará e Globoplay Originais.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ok">Selecionada FRAPA</span>
+        <span class="obra-meta">FSA · Globoplay · TV Brasil</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#c9a84c"></span>Livro-Álbum
+      </div>
+      <div class="obra-titulo">Fugit Aliquem</div>
+      <div class="obra-subtitulo">Projeto musical anônimo</div>
+      <p class="obra-desc">Livro-álbum híbrido com faixas, identidade visual e PDF consolidado. Publicado sob anonimato — a dissolução da autoria como gesto estético e político.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ativo">Em construção</span>
+        <span class="obra-meta">Visual + PDF</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#6b6558"></span>Ficção Científica
+      </div>
+      <div class="obra-titulo">Chronos Corp</div>
+      <div class="obra-subtitulo">O Tecido Invisível do Nada</div>
+      <p class="obra-desc">Série limitada com identidade visual completa — artes SVG produzidas para feed e stories. Universo de ficção científica com conceitos filosóficos sobre tempo e memória.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-pause">Em pausa</span>
+        <span class="obra-meta">Assets prontos</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PESQUISA ACADÊMICA -->
+<section id="pesquisa">
+  <div class="section-tag">Academia</div>
+  <h2>Produção Intelectual</h2>
+  <div class="divider"></div>
+  <div class="artigos-list">
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2024–2025</div>
+        <div class="artigo-titulo">Subjetividades Negras e Algoritmos: Dupla Ferida Algorítmica e Hipervigilância Identitária Digital</div>
+        <div class="artigo-info">Psicologia &amp; Sociedade · Revista da ABPN · Saúde e Sociedade · Race &amp; Class</div>
+      </div>
+      <div class="artigo-badge">Em submissão</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2024</div>
+        <div class="artigo-titulo">Ascese, Estética da Existência</div>
+        <div class="artigo-info">Coautoria: Luciana Lobo Miranda (UFC) · Revista Subjetividades (UNIFOR) · Disability &amp; Society · Protocolo COMEPE nº 340/11</div>
+      </div>
+      <div class="artigo-badge">Em submissão</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2024</div>
+        <div class="artigo-titulo">Edgar Morin: Uma Crônica do Pensamento Complexo</div>
+        <div class="artigo-info">Peça literária-ensaística integrando Maturana, Prigogine, Bateson e Watzlawick</div>
+      </div>
+      <div class="artigo-badge">Concluído</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">Pesquisa Base</div>
+        <div class="artigo-titulo">Saúde Pública &amp; Subjetividade</div>
+        <div class="artigo-info">Secretaria Municipal de Saúde de Fortaleza · Psicologia Social · Saúde Coletiva</div>
+      </div>
+      <div class="artigo-badge">Contínuo</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CITAÇÃO / PERSPECTIVA -->
+<section class="citacao-section">
+  <div class="citacao-grid">
+    <div>
+      <div class="section-tag">Perspectiva</div>
+      <h2>Fortaleza como<br>matéria-prima</h2>
+      <p style="color:var(--ink2);margin-top:1.5rem;line-height:1.9;font-size:1rem">Da saúde pública ao roteiro noir, do romance ao ensaio acadêmico — uma escrita que nasce do chão do Ceará e dialoga com Fanon, Morin e a tradição filosófica que rompe fronteiras geográficas e disciplinares.</p>
+    </div>
+    <blockquote class="citacao-text">
+      "Narrar é um ato político. Cada personagem carrega o peso de quem não foi contado."
+      <cite>— Bíblia de Apostasia</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner">
+    <div class="section-tag">Contato</div>
+    <h2>Vamos conversar</h2>
+    <div class="divider"></div>
+    <p style="color:var(--ink2);line-height:1.8;max-width:480px">Para parcerias editoriais, co-produções audiovisuais, colaborações acadêmicas ou projetos independentes — entre em contato.</p>
+    <!-- SUBSTITUA pelo seu e-mail real -->
+    <a href="mailto:lucienlourenco@gmail.com" class="contato-email">lucienlourenco@gmail.com</a>
+    <div class="contato-links">
+      <!-- SUBSTITUA os href pelos seus links reais -->
+      <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4766360Y7" class="contato-link" target="_blank">Lattes</a>
+      <a href="https://instagram.com/lucianlourencol" class="contato-link" target="_blank">Instagram</a>
+      <a href="#" class="contato-link">Vimeo</a>
+      <a href="#" class="contato-link">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Lucian Lourenço — Todos os direitos reservados</span>
+  <span class="footer-loc">Fortaleza, Ceará · Brasil</span>
+</footer>
+
+<script>
+// Menu mobile
+const toggle = document.getElementById('navToggle');
+const links  = document.getElementById('navLinks');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => links.classList.remove('open'));
+});
+</script>
+</body>
+</html>
