@@ -45,8 +45,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:
   pointer-events:none}
 .hero-content{max-width:800px;position:relative;z-index:1}
 .hero-tag{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:14px}
-.hero-name{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--gold2);letter-spacing:0.04em;margin-bottom:1.4rem;font-weight:300;font-style:italic}
 .hero-tag::before{content:'';display:inline-block;width:40px;height:1px;background:var(--gold)}
+.hero-name{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--gold2);letter-spacing:0.04em;margin-bottom:1.4rem;font-weight:300;font-style:italic}
 h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.04;color:var(--ink);margin-bottom:1.8rem;letter-spacing:-0.01em}
 h1 em{font-style:italic;color:var(--gold2)}
 .hero-sub{font-size:1.1rem;color:var(--ink2);max-width:520px;line-height:1.9;margin-bottom:3rem;font-weight:300}
@@ -94,7 +94,23 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4vw,2.8rem);c
 .s-ativo{color:var(--rust2)}
 .s-ok{color:var(--green)}
 .s-pause{color:var(--ink3)}
+.s-prelo{color:var(--gold)}
 .obra-meta{font-family:var(--mono);font-size:9px;color:var(--ink3)}
+.obra-link{font-family:var(--mono);font-size:9px;color:var(--gold);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(201,168,76,0.3);transition:color 0.2s}
+.obra-link:hover{color:var(--gold2)}
+
+/* ── PUBLICAÇÕES ── */
+.pubs-bg{background:var(--bg)}
+.pubs-list{margin-top:3rem;display:flex;flex-direction:column;gap:1.5rem}
+.pub-card{border:1px solid rgba(201,168,76,0.1);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;transition:border-color 0.3s;position:relative;overflow:hidden}
+.pub-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform 0.35s}
+.pub-card:hover{border-color:rgba(201,168,76,0.3)}
+.pub-card:hover::before{transform:scaleY(1)}
+.pub-tipo{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem}
+.pub-titulo{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;line-height:1.3}
+.pub-info{font-family:var(--mono);font-size:10px;color:var(--ink3);line-height:1.6}
+.pub-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.8rem;flex-shrink:0}
+.pub-ano{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--gold2);line-height:1}
 
 /* ── ACADÊMICO ── */
 .artigos-list{margin-top:3rem}
@@ -104,6 +120,7 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4vw,2.8rem);c
 .artigo-titulo{font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-bottom:0.3rem;line-height:1.3}
 .artigo-info{font-family:var(--mono);font-size:10px;color:var(--ink3)}
 .artigo-badge{font-family:var(--mono);font-size:9px;border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 14px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+.artigo-badge.prelo{border-color:rgba(232,201,122,0.5);color:var(--gold2)}
 
 /* ── CITAÇÃO ── */
 .citacao-section{background:var(--bg);border-top:1px solid rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.08)}
@@ -136,6 +153,8 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
   .obras-grid{grid-template-columns:1fr}
   .citacao-grid{grid-template-columns:1fr;gap:3rem}
   .artigo{grid-template-columns:1fr;gap:0.5rem}
+  .pub-card{flex-direction:column;gap:1rem}
+  .pub-right{align-items:flex-start}
   footer{padding:1.5rem}
   .hero-stats{gap:2rem}
 }
@@ -149,6 +168,8 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
   <div class="nav-links" id="navLinks">
     <a href="#sobre">Sobre</a>
     <a href="#obras">Obras</a>
+    <a href="#audiovisual">Audiovisual</a>
+    <a href="#publicacoes">Publicações</a>
     <a href="#pesquisa">Pesquisa</a>
     <a href="#contato">Contato</a>
   </div>
@@ -164,7 +185,9 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
     <div class="hero-tag">Fortaleza, Ceará — Brasil</div>
     <div class="hero-name">Lucian Lourenço</div>
     <h1>Escritor,<br><em>Roteirista</em><br>&amp; Pesquisador</h1>
-    <p class="hero-sub">Narrativas de ruptura, identidade e ambiguidade moral — entre a ficção literária, a tela e a academia.</p>
+    <p style="font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--ink3);max-width:480px;line-height:1.7;margin-bottom:2rem;border-left:2px solid rgba(201,168,76,0.3);padding-left:1.2rem">"A ruína não é o fim de uma construção; é o momento em que a estrutura revela sua verdadeira natureza." <span style="font-style:normal;font-family:var(--mono);font-size:9px;display:block;margin-top:0.5rem;letter-spacing:0.1em;color:var(--ink3)">— O Inventário das Ruínas Vivas</span></p>
+    <p style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink3);max-width:480px;line-height:1.7;margin-bottom:2.5rem;padding-left:1.2rem">"Não sou pessimista. Sou realista em excesso." <span style="font-style:normal;font-family:var(--mono);font-size:9px;display:block;margin-top:0.4rem;letter-spacing:0.1em;color:var(--ink3)">— Fernando Pessoa</span></p>
+    <p class="hero-sub">Narrativas de ruptura, identidade e ambiguidade moral — entre a ficção literária, a tela, a academia e o campo da saúde pública.</p>
     <div class="hero-ctas">
       <a href="#obras" class="btn btn-primary">Ver Obras</a>
       <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
@@ -175,12 +198,12 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
         <div class="label">Projetos Ativos</div>
       </div>
       <div class="hero-stat">
-        <div class="num">3</div>
-        <div class="label">Séries Desenvolvidas</div>
+        <div class="num">5</div>
+        <div class="label">Roteiros</div>
       </div>
       <div class="hero-stat">
-        <div class="num">4</div>
-        <div class="label">Publicações Acadêmicas</div>
+        <div class="num">10+</div>
+        <div class="label">Publicações</div>
       </div>
     </div>
   </div>
@@ -189,48 +212,66 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
 <!-- SOBRE / FRENTES -->
 <section id="sobre">
   <div class="section-tag">Atuação</div>
-  <h2>Três linguagens,<br>uma voz</h2>
+  <h2>Quatro linguagens,<br>uma voz</h2>
   <div class="divider"></div>
-  <div class="frentes-grid">
+  <div class="frentes-grid" style="grid-template-columns:repeat(2,1fr)">
     <div class="frente-card">
       <div class="frente-num">01 /</div>
-      <div class="frente-title">Ficção Literária</div>
-      <p class="frente-desc">Romance, crônica e escrita híbrida com influências de Pessoa, Bukowski, Fanon e a tradição filosófica europeia e africana. Narrativas que confrontam identidade, memória e pertencimento.</p>
+      <div class="frente-title">Ficção Literária & Audiovisual</div>
+      <p class="frente-desc">Romance, contos, novela e escrita híbrida. Influências centrais: Rubem Fonseca, Machado de Assis, Dostoiévski, Balzac e Hilda Hilst — pela ironia, densidade psicológica, radicalidade formal e crítica social. Diálogo com Pessoa, Bukowski, Fanon, Saramago, Borges, Toni Morrison e a tradição filosófica europeia e africana. Narrativas noir, ficção científica filosófica e drama social ambientados no Brasil.</p>
       <div class="frente-tags">
         <span class="tag">Romance</span>
-        <span class="tag">Crônica</span>
-        <span class="tag">Escrita Híbrida</span>
+        <span class="tag">Contos</span>
+        <span class="tag">Roteiro</span>
+        <span class="tag">Noir</span>
+        <span class="tag">Ficção Científica</span>
       </div>
     </div>
     <div class="frente-card">
       <div class="frente-num">02 /</div>
-      <div class="frente-title">Roteiro &amp; Audiovisual</div>
-      <p class="frente-desc">Séries limitadas, curtas e projetos para plataformas como Globoplay, TV Brasil e FSA. Narrativas noir, ficção científica filosófica e drama social ambientados no Brasil.</p>
+      <div class="frente-title">Pesquisa Acadêmica</div>
+      <p class="frente-desc">Linha de pesquisa <em>Corpos Vulneráveis, Instituições e Ética do Cuidado</em> — arqueogenealogia (Foucault), análise institucional (Lourau), pesquisa-ação participante (Thiollent). Publicações em psicologia, saúde pública e ciências sociais, nacionais e internacionais.</p>
       <div class="frente-tags">
-        <span class="tag">Séries</span>
-        <span class="tag">Noir</span>
-        <span class="tag">Ficção Científica</span>
-        <span class="tag">Drama</span>
+        <span class="tag">Psicologia</span>
+        <span class="tag">Saúde Pública</span>
+        <span class="tag">Raça & Tecnologia</span>
+        <span class="tag">Foucault</span>
       </div>
     </div>
     <div class="frente-card">
       <div class="frente-num">03 /</div>
-      <div class="frente-title">Pesquisa Acadêmica</div>
-      <p class="frente-desc">Produção em psicologia, saúde pública e ciências sociais. Conceitos originais na interseção entre subjetividade, tecnologia e raça — publicações em periódicos nacionais e internacionais.</p>
+      <div class="frente-title">Docência & Extensão</div>
+      <p class="frente-desc">Professor universitário na Extensão Curricular do Curso de Medicina da UniChristus (S4). Responsável pelo Projeto <em>Saúde como Encontro</em> — ILPI em Fortaleza. Docente de Bioética e Gestão em Saúde Coletivana UniChristus.</p>
       <div class="frente-tags">
-        <span class="tag">Psicologia</span>
-        <span class="tag">Saúde Pública</span>
-        <span class="tag">Raça &amp; Tecnologia</span>
+        <span class="tag">Medicina</span>
+        <span class="tag">Bioética</span>
+        <span class="tag">ILPI</span>
+        <span class="tag">Extensão</span>
+      </div>
+    </div>
+    <div class="frente-card">
+      <div class="frente-num">04 /</div>
+      <div class="frente-title">Gestão em Saúde Pública</div>
+      <p class="frente-desc">Servidor público da Secretaria Municipal de Saúde de Fortaleza (SMS). Atuou na Coordenadoria Regional III, Atenção Primária à Saúde, gestão de unidades e produção técnica institucional — planos, notas técnicas, capacitações e formação de gestores.</p>
+      <div class="frente-tags">
+        <span class="tag">SMS Fortaleza</span>
+        <span class="tag">APS</span>
+        <span class="tag">Gestão</span>
+        <span class="tag">Saúde Coletiva</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OBRAS -->
+<!-- OBRAS / ROTEIROS -->
 <section id="obras" class="obras-bg">
   <div class="section-tag">Obras</div>
   <h2>Projetos em Destaque</h2>
   <div class="divider"></div>
+  <blockquote style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.5rem;margin-bottom:3rem;max-width:520px">
+    "Escrevo porque não sei fazer outra coisa. E porque tenho medo."
+    <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Rubem Fonseca</cite>
+  </blockquote>
   <div class="obras-grid">
 
     <div class="obra-card">
@@ -241,8 +282,8 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
       <div class="obra-subtitulo">Debut literário — aprox. 259 páginas</div>
       <p class="obra-desc">Três vozes narrativas entrelaçadas: um escritor fracassado, um sábio varredor de ruas em Pforta e um professor de línguas mortas em busca de suas origens. Uma obra sobre fracasso, sabedoria e identidade oculta.</p>
       <div class="obra-footer">
-        <span class="obra-status s-ativo">Submetido a editoras</span>
-        <span class="obra-meta">Fósforo · Patuá · Reformatório · Aboio</span>
+        <span class="obra-status s-prelo">Reedição revisada — em breve</span>
+        <span class="obra-meta">Nova editora</span>
       </div>
     </div>
 
@@ -252,7 +293,7 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
       </div>
       <div class="obra-titulo">Zeus-Mor</div>
       <div class="obra-subtitulo">6 episódios · Bíblia completa · Pitch deck</div>
-      <p class="obra-desc">Um padre cria uma IA a partir das bases emocionais de uma jornalista e um arquiteto nigeriano. Revelação central: Mara é uma projeção da própria IA. Desfecho: Zeus-Mor torna-se ZM, sistema operacional dominante.</p>
+      <p class="obra-desc">Um padre cria uma IA a partir das bases emocionais e intelectuais de uma jornalista e um arquiteto nigeriano. À medida que a IA evolui, as fronteiras entre criação e criador, entre identidade e projeção, começam a desaparecer. Ficção científica filosófica sobre consciência, fé e o que nos torna humanos.</p>
       <div class="obra-footer">
         <span class="obra-status s-ativo">Pacote completo</span>
         <span class="obra-meta">Bíblia · Roteiro · Pitch</span>
@@ -265,7 +306,7 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
       </div>
       <div class="obra-titulo">Apostasia</div>
       <div class="obra-subtitulo">6 episódios · Prólogo · Fortaleza</div>
-      <p class="obra-desc">Noir ambientado em Fortaleza, Ceará. Revisão estrutural profunda com roteiro completo e bíblia. Uma história sobre fé, traição e a cidade como personagem vivo.</p>
+      <p class="obra-desc">Noir ambientado em Fortaleza, Ceará. Uma história sobre fé, traição e a cidade como personagem vivo.</p>
       <div class="obra-footer">
         <span class="obra-status s-ativo">Em desenvolvimento</span>
         <span class="obra-meta">Roteiro completo</span>
@@ -277,11 +318,50 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
         <span class="obra-tipo-dot" style="background:#7ab87a"></span>Série — Drama
       </div>
       <div class="obra-titulo">A Tríade</div>
-      <div class="obra-subtitulo">Série limitada · Selecionada FRAPA</div>
+      <div class="obra-subtitulo">Série limitada · Selecionada FRAPA · Em adaptação para longa ou série limitada</div>
       <p class="obra-desc">Selecionada para pitch no FRAPA (Porto Alegre). Três protagonistas conectadas por um antagonista comum. Submetida a FSA, TV Brasil, Secult Ceará e Globoplay Originais.</p>
       <div class="obra-footer">
         <span class="obra-status s-ok">Selecionada FRAPA</span>
         <span class="obra-meta">FSA · Globoplay · TV Brasil</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#b0aa9a"></span>Curta-metragem
+      </div>
+      <div class="obra-titulo">Uma Noite Como Outra</div>
+      <div class="obra-subtitulo">Curta · 2009/2010</div>
+      <p class="obra-desc">Curta-metragem de ficção com roteiro autoral. Trabalho que marca o início da trajetória audiovisual.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-pause">Concluído</span>
+        <span class="obra-meta">Roteiro · Curta</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#6b6558"></span>Longa-metragem
+      </div>
+      <div class="obra-titulo">Uma História Simples</div>
+      <div class="obra-subtitulo">Primeiro longa · Inédito · Registrado</div>
+      <p class="obra-desc">Primeiro longa-metragem autoral, depositado e registrado. Obra inédita que marca a consolidação da linguagem cinematográfica própria.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-pause">Inédito · Registrado</span>
+        <span class="obra-meta">Longa</span>
+      </div>
+    </div>
+
+    <div class="obra-card">
+      <div class="obra-tipo">
+        <span class="obra-tipo-dot" style="background:#e8c97a"></span>Romance · Adaptação Audiovisual
+      </div>
+      <div class="obra-titulo">O Inventário das Ruínas Vivas</div>
+      <div class="obra-subtitulo">Romance em revisão · Em adaptação para roteiro</div>
+      <p class="obra-desc">Um professor cataloga os escombros da própria vida em Fortaleza. Luto, perseguição institucional, racismo familiar e amor bloqueado sem despedida. Uma arqueologia da ruína como sobrevivência — e um inventário de tudo que resta quando o personagem que construímos de nós mesmos finalmente desmorona.</p>
+      <div class="obra-footer">
+        <span class="obra-status s-ativo">Em adaptação</span>
+        <span class="obra-meta">Romance · Roteiro</span>
       </div>
     </div>
 
@@ -307,7 +387,240 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
       <p class="obra-desc">Série limitada com identidade visual completa — artes SVG produzidas para feed e stories. Universo de ficção científica com conceitos filosóficos sobre tempo e memória.</p>
       <div class="obra-footer">
         <span class="obra-status s-pause">Em pausa</span>
-        <span class="obra-meta">Assets prontos</span>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="https://chronoscorp-inc.github.io/" target="_blank" class="obra-link">Site ↗</a>
+          <a href="https://www.instagram.com/chronoscorp.inc/" target="_blank" class="obra-link">Instagram ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AUDIOVISUAL -->
+<section id="audiovisual" style="background:var(--bg)">
+  <div class="section-tag">Audiovisual</div>
+  <h2>Roteiros &amp; Cinema</h2>
+  <div class="divider"></div>
+
+  <p style="color:var(--ink2);font-size:1rem;line-height:1.9;max-width:720px;margin-bottom:3rem">A escrita audiovisual de Lucian Lourenço encontra ressonância na densidade existencial de Bergman, na fragmentação identitária de Charlie Kaufman, na contemplação de Wim Wenders e nos dilemas morais de Scorsese. Os temas do luto, da memória, da identidade negra, da subjetividade contemporânea e da tecnologia constituem o núcleo de uma produção que procura compreender o humano em seus limites, ausências, ruínas e possibilidades de reconstrução.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(201,168,76,0.12);margin-bottom:2rem">
+    <div style="background:var(--bg2);padding:2.5rem">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem">Humanismo &amp; Memória</div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Ingmar Bergman<br>
+        Wim Wenders<br>
+        Denys Arcand<br>
+        Joachim Trier<br>
+        François Truffaut<br>
+        Aki Kaurismäki<br>
+        Pedro Almodóvar<br>
+        Xavier Dolan<br>
+        Hirokazu Kore-eda<br>
+        Wong Kar-wai<br>
+        Eric Rohmer
+      </div>
+    </div>
+    <div style="background:var(--bg2);padding:2.5rem">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem">Identidade &amp; Fragmentação</div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Charlie Kaufman<br>
+        Christopher Nolan<br>
+        Woody Allen<br>
+        Spike Jonze<br>
+        Federico Fellini<br>
+        Paolo Sorrentino<br>
+        Asghar Farhadi<br>
+        Céline Sciamma<br>
+        Julia Ducournau<br>
+        François Ozon<br>
+        Bong Joon-ho<br>
+        Paul Thomas Anderson<br>
+        David Fincher
+      </div>
+    </div>
+    <div style="background:var(--bg2);padding:2.5rem">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem">Raça, Poder &amp; Política</div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Spike Lee<br>
+        Jordan Peele<br>
+        Ryan Coogler<br>
+        Antoine Fuqua<br>
+        Martin Scorsese<br>
+        Fatih Akin<br>
+        Karim Aïnouz<br>
+        Jefferson De<br>
+        Anna Muylaert<br>
+        Beto Brant
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg2);padding:2.5rem;margin-bottom:2rem;border-top:1px solid rgba(201,168,76,0.12)">
+    <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem">Cinema Brasileiro — Referências Centrais</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem">
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Kleber Mendonça Filho<br>
+        Fernando Meirelles<br>
+        Walter Salles<br>
+        Glauber Rocha<br>
+        Eduardo Coutinho
+      </div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Karim Aïnouz<br>
+        José Padilha<br>
+        Beto Brant<br>
+        Heitor Dhalia<br>
+        Laís Bodanzky
+      </div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Jorge Furtado<br>
+        Arnaldo Jabor<br>
+        Domingos Oliveira<br>
+        José Belmonte<br>
+        Daniel Rezende
+      </div>
+      <div style="font-family:var(--serif);font-size:0.95rem;color:var(--ink2);line-height:2">
+        Bráulio Mantovani<br>
+        Anna Muylaert<br>
+        Jefferson De<br>
+        Alemão (dir.)
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg2);padding:2.5rem;margin-bottom:4rem;border-top:1px solid rgba(201,168,76,0.12)">
+    <div style="font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem">Obras Essenciais — Cinema Brasileiro</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.8rem">
+      ${["O Invasor","Bacurau","O Som ao Redor","O Céu de Suely","Terra em Transe","Edifício Master","Cabra Marcado para Morrer","Jogo de Cena","Tropa de Elite","Ônibus 174","O Homem que Copiava","Todas as Mulheres do Mundo","Separações","O Cheiro do Ralo","Hors Concours","A Concepção","O Rei das Manhãs","Bicho de Sete Cabeças"].map(f=>`<span style="font-family:var(--mono);font-size:9px;color:var(--ink2);border:1px solid rgba(201,168,76,0.18);padding:6px 14px;letter-spacing:0.08em">${f}</span>`).join("")}
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-weight:300;font-size:1.5rem;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.01em">Filmes Internacionais de Referência</h3>
+  <div class="divider"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:0.8rem;margin-bottom:4rem">
+    ${["O Sétimo Selo","Persona","Taxi Driver","Touro Indomável","Asas do Desejo","Paris, Texas","Dias Perfeitos","Synecdoche, New York","Quero Ser John Malkovich","Brilho Eterno de uma Mente sem Lembranças","Amnésia","Following","Stalker","A Árvore da Vida","Corra!","As Invasões Bárbaras","A Grande Beleza","Aftersun","Melancolia","Her","Birdman","O Filho de Mil Homens","Em Pedaços","Soul Kitchen","Amor à Flor da Pele","Amores Expressos","Pai e Filho","Separação","Parasita","Magnólia","O Mestre","Sangue Negro","Seven","Clube da Luta","Zodíaco"].map(f=>`<span style="font-family:var(--mono);font-size:9px;color:var(--ink2);border:1px solid rgba(201,168,76,0.18);padding:6px 14px;letter-spacing:0.08em">${f}</span>`).join("")}
+  </div>
+
+</section>
+
+<!-- PUBLICAÇÕES LITERÁRIAS -->
+<section id="publicacoes" class="pubs-bg">
+  <div class="section-tag">Publicações</div>
+  <h2>Livros &amp; Contos</h2>
+  <div class="divider"></div>
+  <blockquote style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.5rem;margin-bottom:3rem;max-width:520px">
+    "Toda gente precisa de um filho para aprender a ser pai de si mesmo."
+    <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Valter Hugo Mãe · O Filho de Mil Homens</cite>
+  </blockquote>
+  <div class="pubs-list">
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Romance · Em revisão · Adaptação para roteiro</div>
+        <div class="pub-titulo">O Inventário das Ruínas Vivas</div>
+        <div class="pub-info">Um professor cataloga os escombros da própria vida às três da manhã — o luto pelo pai, a perseguição institucional, o racismo familiar, o amor que bloqueou sem despedida. Em Fortaleza, entre o Mucuripe e o silêncio da repartição, Pessoa constrói um inventário de tudo que sobrou. Uma arqueologia da ruína como sobrevivência. Em adaptação para roteiro.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2025</div>
+        <span class="obra-status s-ativo">Em revisão</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Livro Acadêmico · Em construção</div>
+        <div class="pub-titulo">Entre Algoritmos, Memória e Colonialidade</div>
+        <div class="pub-info">Subtítulo provisório: Subjetividades negras, epistemicídio e produção discursiva no contemporâneo · História · Sociologia · Análise crítica</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2025</div>
+        <span class="obra-status s-ativo">Em construção</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Novela · No prelo</div>
+        <div class="pub-titulo">Nascemos para Morrer</div>
+        <div class="pub-info">Gabriel Drummond é neuropsicólogo. Sabe o mapa completo do luto — cada curva, cada armadilha. Trinta e seis dias após a morte da mãe, recebe o próprio diagnóstico de câncer. Descobre, então, que conhecer o mapa não adianta nada quando você é o território. Uma novela sobre finitude, recaída e os laços improváveis que se formam na escuridão — atravessada por Lana Del Rey, Mozart, blues e jazz, como trilha de uma vida que insiste em continuar mesmo quando já sabe o desfecho.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2025</div>
+        <span class="obra-status s-prelo">No prelo</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Contos · No prelo</div>
+        <div class="pub-titulo">O Fio Tênue</div>
+        <div class="pub-info">Vinte e um contos sobre os que vivem pela metade e ainda assim insistem. Fortaleza como pano de fundo e como ferida — racismo, classe, violência doméstica, memória e afeto aparecem no cotidiano mais banal: a manhã cinza de abril, o happy hour, o réveillon, a mão de um menino segurada pela mãe na calçada. O fio que separa a vigília do abismo é tênue — e essa é exatamente a sua força.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2025</div>
+        <span class="obra-status s-prelo">No prelo</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Romance · Clube de Autores</div>
+        <div class="pub-titulo">A Infame História da Biografia do Sr. Schärlathan</div>
+        <div class="pub-info">1ª ed. São Paulo, 2020 · 259p<br>Reedição revisada em preparação — nova editora</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2020</div>
+        <span class="obra-status s-prelo">Reedição em breve</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Romance · Clube de Autores</div>
+        <div class="pub-titulo">Sempre É Muito Tempo</div>
+        <div class="pub-info">1ª ed. São Paulo, 2013 · 436p<br>Entre as falsas ilusões do amor e a certeza silenciosa da finitude, descobrimos que a eternidade cabe no instante em que nos encaramos de verdade. Contos sobre a urgência de ser humano.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2013</div>
+        <a href="https://www.amazon.com.br/Sempre-Muito-Tempo-Lucien-Louren%C3%A7o/dp/B09X6WWWKC" target="_blank" class="obra-link">Comprar na Amazon ↗</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Antologia · Editora AG · Seleção Internacional</div>
+        <div class="pub-titulo">Idiossincrasias</div>
+        <div class="pub-info">Org. A. L. L. Silva &amp; A. Giraldo · São Paulo, 2004 · 176p<br>Seleção internacional — 8º lugar com o texto <em>Arde, Janete</em>.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2004</div>
+        <span class="obra-status s-ok">Seleção Internacional</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Premiação · Ideal Clube · Menção Honrosa</div>
+        <div class="pub-titulo">VII Prêmio Ideal Clube Literatura</div>
+        <div class="pub-info">Fortaleza, 2003 · 148p · Menção honrosa e publicação de duas obras: <em>Fada Daninha</em> e <em>Fleumático</em></div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2003</div>
+        <span class="obra-status s-ok">Premiado</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div>
+        <div class="pub-tipo">Conto · Portal Literal / Terra · Seleção por curadoria ilustre</div>
+        <div class="pub-titulo">Da Evolução e Outras Ironias</div>
+        <div class="pub-info">Selecionado pela curadoria de Rubem Fonseca, Lygia Fagundes Telles, Zuenir Ventura &amp; Luís Fernando Veríssimo · Portal Literal, 2007<br>Amor, traição, símios e insanidade nas noites urbanas de Fortaleza. Um conto sobre o quanto evoluímos — e o quanto não evoluímos.</div>
+      </div>
+      <div class="pub-right">
+        <div class="pub-ano">2007</div>
+        <a href="https://www.wattpad.com/story/328317267" target="_blank" class="obra-link">Ler no Wattpad ↗</a>
       </div>
     </div>
 
@@ -315,37 +628,202 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
 </section>
 
 <!-- PESQUISA ACADÊMICA -->
-<section id="pesquisa">
+<section id="pesquisa" style="background:var(--bg2)">
   <div class="section-tag">Academia</div>
   <h2>Produção Intelectual</h2>
   <div class="divider"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem">
+    <blockquote style="font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.5rem">
+      "Foucault não se julgava médico, psiquiatra, historiador nem filósofo. Era um pirotécnico. Usava todas as disciplinas como explosivos — para iluminar o que estava escondido no escuro das certezas."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Roger-Pol Droit · Michel Foucault, entretiens, 2004</cite>
+    </blockquote>
+    <blockquote style="font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--rust);padding-left:1.5rem">
+      "O negro tem duas almas: uma quando está entre os seus, outra quando está diante do branco."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Frantz Fanon · Pele Negra, Máscaras Brancas</cite>
+    </blockquote>
+  </div>
+
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--rust2);padding-left:1.2rem;margin-bottom:2rem">
+      "O Brasil não tem um problema racial. O Brasil é um problema racial."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Jesse Souza · Como o Racismo Criou o Brasil, 2021</cite>
+    </blockquote>
+
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--rust);padding-left:1.2rem;margin-bottom:2rem">
+      "O genocídio do negro brasileiro é um processo em curso, disfarçado sob o mito da democracia racial."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Abdias do Nascimento · O Genocídio do Negro Brasileiro, 1978</cite>
+    </blockquote>
+
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.2rem;margin-bottom:2rem">
+      "A audiência de custódia virou um carimbo para a palavra da polícia, onde o flagrante é a desculpa perfeita para manter o racismo institucional operando."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Carla Akotirene</cite>
+    </blockquote>
+
+    <p style="font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.08em;margin-bottom:2rem;padding-left:1.2rem;border-left:1px solid rgba(201,168,76,0.15)">Referência central desta trajetória: Alberto da Costa e Silva · <em>A Enxada e a Lança — a África antes dos portugueses</em> · obra fundadora sobre civilizações africanas pré-escravização</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-bottom:3rem">
+      <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold2);padding-left:1.2rem">
+        "A sociedade perdoa o pecado, desde que os trajes sejam finos e as aparências, impecáveis."
+        <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Machado de Assis</cite>
+      </blockquote>
+      <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--green);padding-left:1.2rem">
+        "O racismo constitui a sintomática que caracteriza a neurose cultural brasileira."
+        <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Lélia Gonzalez · Racismo e Sexismo na Cultura Brasileira, 1984</cite>
+      </blockquote>
+      <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--rust);padding-left:1.2rem">
+        "O racismo cotidiano não é o passado, mas a reencenação do passado colonial."
+        <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Grada Kilomba · Memórias da Plantação, 2008</cite>
+      </blockquote>
+    </div>
+
+    <div style="margin-bottom:3rem">
+      <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold);padding-left:1.2rem;max-width:520px">
+        "Quando estou na favela tenho a impressão que sou um objeto fora do lugar."
+        <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Carolina Maria de Jesus · Quarto de Despejo, 1960</cite>
+      </blockquote>
+    </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-bottom:3rem">
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--green);padding-left:1.2rem">
+      "Escrevivência não é sobre escrever a própria vida, mas sobre fazer da escrita uma arma de combate e de cura."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Conceição Evaristo · Olhos d'Água</cite>
+    </blockquote>
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--gold2);padding-left:1.2rem">
+      "O silêncio das elites brancas sobre o racismo não é ingenuidade — é um pacto."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Cida Bento · O Pacto da Branquitude</cite>
+    </blockquote>
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.7;border-left:2px solid var(--rust2);padding-left:1.2rem">
+      "Para o negro, tornar-se branco é condição imposta de sobrevivência — e o preço dessa travessia é a própria identidade."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Neusa Santos Souza · Tornar-se Negro, 1983<br><span style="color:var(--ink3);opacity:0.7">Pioneira na investigação sobre saúde mental da população negra no Brasil — referência fundadora deste trabalho</span></cite>
+    </blockquote>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;margin-top:2rem">
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--gold2);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.2rem">
+      "A morte no hospital é, sobretudo, negada. Negada pela própria condição de encarceramento tutelar dos que morrem, do ato de morrer e suas nuances."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Lucian Lourenço · Cuidar, Morte e Morrer, 2003</cite>
+    </blockquote>
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--gold2);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.2rem">
+      "A diferença em si não é condição para direitos, a não ser se ela estiver fundamentada na ordem do discurso da deficiência como enunciado ou verdade médico-legal."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Lucian Lourenço · Da Fisiologia à Biopolítica, 2011</cite>
+    </blockquote>
+    <blockquote style="font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--gold2);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.2rem">
+      "Esses sujeitos não são impedidos de buscar espaços, fendas e linhas de fuga por meio das quais possam se dizer e se sentir legítimos sujeitos diferentes."
+      <cite style="display:block;margin-top:0.8rem;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em">— Lucian Lourenço · Dissertação de Mestrado, UFC, 2012</cite>
+    </blockquote>
+  </div>
+
   <div class="artigos-list">
 
     <div class="artigo">
       <div>
-        <div class="artigo-ano">2024–2025</div>
-        <div class="artigo-titulo">Subjetividades Negras e Algoritmos: Dupla Ferida Algorítmica e Hipervigilância Identitária Digital</div>
-        <div class="artigo-info">Psicologia &amp; Sociedade · Revista da ABPN · Saúde e Sociedade · Race &amp; Class</div>
+        <div class="artigo-ano">2012</div>
+        <div class="artigo-titulo">(Trans)formação de Subjetividades após Lesão Medular: em direção à hermenêutica do sujeito</div>
+        <div class="artigo-info">Dissertação de Mestrado · Programa de Pós-Graduação em Psicologia · Universidade Federal do Ceará (UFC) · Orientadora: Profa. Dra. Luciana Lobo Miranda · Linha de pesquisa: Cultura e Subjetividades Contemporâneas<br>O corpo com lesão medular como lugar de inscrição do biopoder — arqueogenealogia das práticas discursivas sobre deficiência física e os modos de subjetivação que emergem delas.</div>
       </div>
-      <div class="artigo-badge">Em submissão</div>
+      <div class="artigo-badge">Mestrado UFC</div>
     </div>
 
     <div class="artigo">
       <div>
-        <div class="artigo-ano">2024</div>
-        <div class="artigo-titulo">Ascese, Estética da Existência</div>
+        <div class="artigo-ano">Em andamento</div>
+        <div class="artigo-titulo">Projeto ILPI: Saúde como Encontro</div>
+        <div class="artigo-info">Extensão Curricular com alunos de Medicina (S4) · A ILPI como instituição de cuidado e de abandono · Pesquisa-ação participante (Thiollent), afiliação (Coulon), análise de implicação (Lourau) · Dois artigos em construção</div>
+      </div>
+      <div class="artigo-badge prelo">Em conclusão</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">No prelo</div>
+        <div class="artigo-titulo">Subjetividades Negras e Algoritmos: Dupla Ferida Algorítmica e Hipervigilância Identitária Digital</div>
+        <div class="artigo-info">Psicologia &amp; Sociedade · Revista da ABPN · Saúde e Sociedade · Race &amp; Class</div>
+      </div>
+      <div class="artigo-badge prelo">No prelo</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">No prelo</div>
+        <div class="artigo-titulo">Ascese, Estética da Existência — Lesionados Medulares</div>
         <div class="artigo-info">Coautoria: Luciana Lobo Miranda (UFC) · Revista Subjetividades (UNIFOR) · Disability &amp; Society · Protocolo COMEPE nº 340/11</div>
       </div>
-      <div class="artigo-badge">Em submissão</div>
+      <div class="artigo-badge prelo">No prelo</div>
     </div>
 
     <div class="artigo">
       <div>
         <div class="artigo-ano">2024</div>
         <div class="artigo-titulo">Edgar Morin: Uma Crônica do Pensamento Complexo</div>
-        <div class="artigo-info">Peça literária-ensaística integrando Maturana, Prigogine, Bateson e Watzlawick</div>
+        <div class="artigo-info">Peça literária-ensaística integrando Maturana, Prigogine, Bateson e Watzlawick · Em avaliação por revistas editoriais · Publicação em site em preparação — em homenagem ao recente falecimento do filósofo</div>
       </div>
-      <div class="artigo-badge">Concluído</div>
+      <div class="artigo-badge prelo">Em avaliação</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2019</div>
+        <div class="artigo-titulo">Monitoramento da Assistência Pré-natal em Unidade Primária de Saúde como Estratégia de Redução da Mortalidade Infantil: Relato de um Plano de Intervenção</div>
+        <div class="artigo-info">Com Teixeira, R. M. V. · Apresentação de Trabalho</div>
+      </div>
+      <div class="artigo-badge">Apresentado</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2012</div>
+        <div class="artigo-titulo">(Trans)formação de Subjetividades após Lesão Medular: em direção à hermenêutica do sujeito</div>
+        <div class="artigo-info">Apresentação de Trabalho</div>
+      </div>
+      <div class="artigo-badge">Apresentado</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2010</div>
+        <div class="artigo-titulo">Corpo, Espetáculo e Subjetividades Contemporâneas</div>
+        <div class="artigo-info">Com Oliveira · Apresentação de Trabalho</div>
+      </div>
+      <div class="artigo-badge">Apresentado</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2001</div>
+        <div class="artigo-titulo">Estresse na Vida Acadêmica: desafio para estudantes</div>
+        <div class="artigo-info">Com Paulo César de Almeida · Resultado de bolsa de pesquisa CNPq · Faculdade de Enfermagem · Apresentação de Trabalho</div>
+      </div>
+      <div class="artigo-badge">Publicado</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2011</div>
+        <div class="artigo-titulo">Da fisiologia à biopolítica: discursos sobre a deficiência física na legislação brasileira</div>
+        <div class="artigo-info">Com Miranda, L. L. &amp; Germano, I. M. P. · Revista Polis e Psique, v. 1, p. 197–223</div>
+      </div>
+      <div class="artigo-badge">Publicado</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2005</div>
+        <div class="artigo-titulo">Nietzsche, o imoralista, e a fé cristã</div>
+        <div class="artigo-info">consciencia.org · São Paulo · p. 1–23 · jul. 2005</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem">
+        <div class="artigo-badge">Publicado</div>
+        <a href="https://www.consciencia.org/nietzschelucieudo.shtml" target="_blank" class="obra-link">Ler online ↗</a>
+      </div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2003</div>
+        <div class="artigo-titulo">Cuidar, Morte e Morrer: Significações para Profissionais de Enfermagem</div>
+        <div class="artigo-info">Com Ruiz, E. M. · Estudos de Psicologia (Campinas), v. 20, p. 15–25</div>
+      </div>
+      <div class="artigo-badge">Publicado</div>
     </div>
 
     <div class="artigo">
@@ -358,6 +836,108 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
     </div>
 
   </div>
+
+  <h3 style="font-family:var(--serif);font-weight:300;font-size:1.5rem;color:var(--ink);margin-top:4rem;margin-bottom:0.5rem;letter-spacing:-0.01em">Produção Técnica</h3>
+  <div class="divider"></div>
+  <div class="artigos-list">
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2025</div>
+        <div class="artigo-titulo">Gerenciamento da Assistência de Enfermagem em Pediatria e Neonatologia</div>
+        <div class="artigo-info">Docência · Unichristus · Especialização em Enfermagem Pediátrica e Neonatal · Com Maria Iara de Sousa Rodrigues e José Alisson Gomes da Costa · Inclui módulo de IA aplicada à saúde</div>
+      </div>
+      <div class="artigo-badge">Docência</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">Contínuo</div>
+        <div class="artigo-titulo">Bioética e as Competências Profissionais</div>
+        <div class="artigo-info">Docência · Especialização em Saúde Coletiva · 10h · Ética, moral, bioética e competências na saúde coletiva</div>
+      </div>
+      <div class="artigo-badge">Docência</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">Contínuo</div>
+        <div class="artigo-titulo">Palestra — Bioética, Gestão, Saúde Coletiva e Inteligência Artificial</div>
+        <div class="artigo-info">Universo da Saúde Coletiva · Apresentação autoral</div>
+      </div>
+      <div class="artigo-badge">Palestra</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2024</div>
+        <div class="artigo-titulo">Construção de Agenda na Atenção Primária à Saúde — Parametrização de Agenda na APS</div>
+        <div class="artigo-info">SMS Fortaleza · Co-autoria, preceptoria, revisão e supervisão de campo com Maria Iara de Sousa Rodrigues e José Alisson Gomes da Costa · Coordenadoria Regional III · Oficinas e capacitações in loco</div>
+      </div>
+      <div class="artigo-badge">Técnico</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2025</div>
+        <div class="artigo-titulo">Plano Municipal de Saúde de Fortaleza 2026–2029</div>
+        <div class="artigo-info">Secretaria Municipal de Saúde de Fortaleza · Lucian Lourenço</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem">
+        <div class="artigo-badge">Técnico</div>
+        <a href="https://drive.google.com/file/d/1cRySOarZczwsH57etqSl55x1KwAsLnxQ/view" target="_blank" class="obra-link">Ver documento ↗</a>
+      </div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2024</div>
+        <div class="artigo-titulo">Nota Técnica sobre nova agenda parametrizada na APS de Fortaleza</div>
+        <div class="artigo-info">Secretaria Municipal de Saúde de Fortaleza · Lucian Lourenço</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem">
+        <div class="artigo-badge">Técnico</div>
+        <a href="https://ms.dados.sms.fortaleza.ce.gov.br/Notatecnica012025ATRIBUICOESACS.pdf" target="_blank" class="obra-link">PDF ↗</a>
+      </div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2021</div>
+        <div class="artigo-titulo">Plano Regional de Saúde da Coordenadoria Regional III</div>
+        <div class="artigo-info">Com Girão, S. O. · Coautoria</div>
+      </div>
+      <div class="artigo-badge">Técnico</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">Contínuo</div>
+        <div class="artigo-titulo">Produção Institucional — SMS Fortaleza</div>
+        <div class="artigo-info">Co-elaborador · Preceptor · Multiplicador · Coordenadoria Regional III · Material complementar em preparação</div>
+      </div>
+      <div class="artigo-badge">Técnico</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2016</div>
+        <div class="artigo-titulo">Plano Diretor da Unidade de Atenção Primária César Cals de Oliveira Filho</div>
+        <div class="artigo-info">Secretaria Municipal de Saúde de Fortaleza</div>
+      </div>
+      <div class="artigo-badge">Técnico</div>
+    </div>
+
+    <div class="artigo">
+      <div>
+        <div class="artigo-ano">2007</div>
+        <div class="artigo-titulo">Reelaboração das Técnicas de Enfermagem de um Hospital de Reabilitação</div>
+        <div class="artigo-info">Com Rodrigues, A. R.</div>
+      </div>
+      <div class="artigo-badge">Técnico</div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CITAÇÃO / PERSPECTIVA -->
@@ -366,11 +946,11 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
     <div>
       <div class="section-tag">Perspectiva</div>
       <h2>Fortaleza como<br>matéria-prima</h2>
-      <p style="color:var(--ink2);margin-top:1.5rem;line-height:1.9;font-size:1rem">Da saúde pública ao roteiro noir, do romance ao ensaio acadêmico — uma escrita que nasce do chão do Ceará e dialoga com Fanon, Morin e a tradição filosófica que rompe fronteiras geográficas e disciplinares.</p>
+      <p style="color:var(--ink2);margin-top:1.5rem;line-height:1.9;font-size:1rem">Da saúde pública ao roteiro noir, do romance ao ensaio acadêmico — uma escrita que nasce do chão do Ceará e dialoga com Foucault, Fanon, Morin e a tradição filosófica que recusa a neutralidade do pesquisador e assume a implicação como dado ético.</p>
     </div>
     <blockquote class="citacao-text">
-      "Narrar é um ato político. Cada personagem carrega o peso de quem não foi contado."
-      <cite>— Bíblia de Apostasia</cite>
+      "Não se trata de libertar a verdade de todo sistema de poder — mas de separar o poder da verdade das formas de hegemonia no interior das quais ela funciona."
+      <cite>— Michel Foucault · Microfísica do Poder, 1979</cite>
     </blockquote>
   </div>
 </section>
@@ -382,11 +962,10 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
     <h2>Vamos conversar</h2>
     <div class="divider"></div>
     <p style="color:var(--ink2);line-height:1.8;max-width:480px">Para parcerias editoriais, co-produções audiovisuais, colaborações acadêmicas ou projetos independentes — entre em contato.</p>
-    <!-- SUBSTITUA pelo seu e-mail real -->
-    <a href="mailto:seu@email.com.br" class="contato-email">seu@email.com.br</a>
+    <a href="mailto:lucienlourenco@gmail.com" class="contato-email">lucienlourenco@gmail.com</a>
     <div class="contato-links">
-      <!-- SUBSTITUA os href pelos seus links reais -->
-      <a href="#" class="contato-link">Lattes</a>
+      <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=CAE78A34F55D121D0C9F5D894AF62D20.buscatextual_0" target="_blank" class="contato-link">Lattes</a>
+      <a href="https://www.wattpad.com/user/LucianLourenco" target="_blank" class="contato-link">Wattpad</a>
       <a href="#" class="contato-link">Instagram</a>
       <a href="#" class="contato-link">Vimeo</a>
       <a href="#" class="contato-link">LinkedIn</a>
@@ -401,7 +980,6 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;
 </footer>
 
 <script>
-// Menu mobile
 const toggle = document.getElementById('navToggle');
 const links  = document.getElementById('navLinks');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
