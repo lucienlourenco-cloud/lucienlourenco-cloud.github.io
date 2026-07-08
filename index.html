@@ -1,456 +1,244 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lucian Lourenço — Escritor, Roteirista e Pesquisador baseado em Fortaleza, Ceará.">
-  <title>Lucian Lourenço — Escritor, Roteirista & Pesquisador</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucien Lourenço — Autor, Roteirista, Pesquisador</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #0a0a0a;
+  color: #f2f2f2;
+}
 
-  <style>
-    *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    :root{
-      --bg:#0a0906;
-      --bg2:#111009;
-      --bg3:#1a1710;
-      --ink:#f0ede5;
-      --ink2:#b0aa9a;
-      --ink3:#6b6558;
-      --gold:#c9a84c;
-      --gold2:#e8c97a;
-      --rust:#a85432;
-      --rust2:#d4794a;
-      --green:#7ab87a;
-      --serif:'Cormorant Garamond',Georgia,serif;
-      --sans:'Syne',sans-serif;
-      --mono:'DM Mono',monospace;
-    }
+/* HERO */
+header {
+  padding: 120px 40px;
+  text-align: center;
+  background: linear-gradient(to bottom, #000, #111);
+}
+header h1 {
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
 
-    body{
-      background:var(--bg);
-      color:var(--ink);
-      font-family:var(--serif);
-      font-size:18px;
-      line-height:1.7;
-      overflow-x:hidden;
-    }
+/* SEÇÕES */
+section {
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-left: 4px solid #d4af37;
+  padding-left: 10px;
+}
 
-    /* NAV */
-    nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      z-index:100;
-      padding:1.2rem 3rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(10,9,6,0.88);
-      backdrop-filter:blur(10px);
-    }
-    .nav-logo{
-      font-family:var(--sans);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--gold);
-      text-decoration:none;
-    }
-    .nav-links{
-      display:flex;
-      gap:2.5rem;
-    }
-    .nav-links a{
-      font-family:var(--mono);
-      font-size:11px;
-      color:var(--ink3);
-      text-decoration:none;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      transition:color 0.2s;
-    }
-    .nav-links a:hover{
-      color:var(--gold);
-    }
+/* LINKS */
+a {
+  color: #d4af37;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+}
 
-    main{
-      padding-top:6rem;
-    }
+/* PAINEL LATERAL */
+#painel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background: #000;
+  border-left: 2px solid #d4af37;
+  padding: 30px;
+  transition: 0.5s ease;
+  overflow-y: auto;
+}
+#painel h3 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #d4af37;
+}
+.painel-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+.painel-item summary {
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #f2f2f2;
+}
+.painel-item p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
 
-    /* HERO */
-    #hero{
-      padding:12rem 3rem 8rem;
-      max-width:900px;
-      margin:0 auto;
-      position:relative;
-    }
-    .hero-tag{
-      font-family:var(--mono);
-      font-size:11px;
-      color:var(--gold);
-      letter-spacing:0.2em;
-      text-transform:uppercase;
-      margin-bottom:1.2rem;
-      display:flex;
-      align-items:center;
-      gap:0.5rem;
-    }
-    .hero-tag::before{
-      content:'';
-      display:inline-block;
-      width:40px;
-      height:1px;
-      background:var(--gold);
-    }
-    h1{
-      font-family:var(--serif);
-      font-weight:300;
-      font-size:clamp(3.2rem,7vw,5.8rem);
-      line-height:1.04;
-      color:var(--ink);
-      margin-bottom:1.8rem;
-      letter-spacing:-0.01em;
-    }
-    h1 em{
-      font-style:italic;
-      color:var(--gold2);
-    }
-    .hero-sub{
-      font-size:1.1rem;
-      color:var(--ink2);
-      max-width:520px;
-      line-height:1.9;
-      margin-bottom:3rem;
-      font-weight:300;
-    }
-    .hero-ctas{
-      display:flex;
-      gap:1.5rem;
-      flex-wrap:wrap;
-      margin-bottom:5rem;
-    }
-    .btn{
-      font-family:var(--mono);
-      font-size:12px;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      text-decoration:none;
-      padding:0.85rem 2rem;
-      border:1px solid;
-      transition:all 0.2s;
-    }
-    .btn-outline{
-      background:transparent;
-      color:var(--ink2);
-      border-color:rgba(201,168,76,0.3);
-    }
-    .btn-outline:hover{
-      color:var(--gold2);
-      border-color:var(--gold);
-    }
-    .hero-stats{
-      display:flex;
-      gap:3rem;
-      flex-wrap:wrap;
-    }
-    .hero-stat .num{
-      font-family:var(--sans);
-      font-size:1.2rem;
-      color:var(--gold);
-      margin-bottom:0.3rem;
-    }
-    .hero-stat .label{
-      font-family:var(--mono);
-      font-size:11px;
-      color:var(--ink3);
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-    }
+/* BOTÃO CONTATO */
+#contato-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #d4af37;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#contato-btn:hover {
+  opacity: 0.8;
+}
+</style>
 
-    /* SEÇÕES */
-    section{
-      padding:6rem 3rem;
-      max-width:900px;
-      margin:0 auto;
-    }
-    .section-tag{
-      font-family:var(--mono);
-      font-size:11px;
-      color:var(--gold);
-      letter-spacing:0.2em;
-      text-transform:uppercase;
-      margin-bottom:1.2rem;
-    }
-    h2{
-      font-family:var(--serif);
-      font-size:2.4rem;
-      color:var(--ink);
-      margin-bottom:2rem;
-      font-weight:300;
-    }
-    p{
-      font-size:1.05rem;
-      color:var(--ink2);
-      line-height:1.9;
-      margin-bottom:1.2rem;
-    }
+<script>
+function abrirPainel() {
+  document.getElementById("painel").style.right = "0";
+}
+function fecharPainel() {
+  document.getElementById("painel").style.right = "-400px";
+}
+</script>
 
-    /* OBRAS */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:2rem;
-      margin-top:2rem;
-    }
-    .card{
-      border:1px solid var(--ink2);
-      border-radius:6px;
-      padding:2rem;
-    }
-    .card h3{
-      font-family:var(--sans);
-      font-size:1.1rem;
-      color:var(--gold);
-      margin-bottom:0.8rem;
-    }
-    .card p{
-      font-size:0.98rem;
-      color:var(--ink2);
-      line-height:1.7;
-    }
-
-    /* CONTATO */
-    .contact-info{
-      font-family:var(--mono);
-      font-size:0.95rem;
-      color:var(--ink3);
-      line-height:1.8;
-    }
-
-    /* PUBLICAÇÕES LISTA */
-    ul.pub-list{
-      list-style:none;
-      margin-top:1rem;
-    }
-    ul.pub-list li{
-      margin-bottom:0.8rem;
-      color:var(--ink2);
-      font-size:0.98rem;
-    }
-    ul.pub-list li span{
-      font-family:var(--mono);
-      font-size:0.85rem;
-      color:var(--ink3);
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-    }
-
-    /* RODAPÉ */
-    footer{
-      padding:3rem;
-      text-align:center;
-      font-family:var(--mono);
-      color:var(--ink3);
-      margin-top:4rem;
-      border-top:1px solid rgba(107,101,88,0.4);
-    }
-
-    /* ANIMAÇÃO SUAVE */
-    .fade-in{
-      opacity:0;
-      transform:translateY(20px);
-      animation:fadeIn 1s ease forwards;
-    }
-    @keyframes fadeIn{
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @media(max-width:768px){
-      nav{padding:1rem 1.5rem;}
-      .nav-links{gap:1.2rem;}
-      section,#hero{padding:4.5rem 1.8rem;}
-    }
-  </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#hero" class="nav-logo">Lucian Lourenço</a>
-    <div class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#projeto-central">Projeto</a>
-      <a href="#obras">Obras</a>
-      <a href="#publicacoes">Publicações</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </nav>
+<div id="contato-btn" onclick="abrirPainel()">Contato</div>
 
-  <main>
+<header>
+  <h1>Lucien Lourenço</h1>
+  <p>Autor • Roteirista • Pesquisador • Criador de Universos</p>
+</header>
 
-    <!-- HERO -->
-    <section id="hero" class="fade-in">
-      <div class="hero-tag">Lucian Lourenço</div>
+<section>
+  <h2>O Fio Tênue — Pré-lançado</h2>
+  <p>Obra literária publicada pela Caravana Grupo Editorial.  
+  Um mergulho no corpo, no silêncio, no trauma, no deslocamento.  
+  A origem estética e narrativa do universo Born To Die.</p>
+  <p><a href="https://caravanagrupoeditorial.com/livros/o-fio-tenue/">Acessar obra</a></p>
+</section>
 
-      <h1>
-        Literatura que encontra o cinema,<br>
-        <em>roteiro que nasce de conto</em><br>
-        e pesquisa que atravessa narrativas
-      </h1>
+<section>
+  <h2>Born To Die — Nascendo</h2>
+  <p>Longa-metragem em desenvolvimento.  
+  Série limitada.  
+  ARG ativo.  
+  Obra audiovisual expandida.</p>
 
-      <p class="hero-sub">
-        Trabalho entre linguagens: escrita literária, criação de roteiros, investigação acadêmica e crítica.  
-        Histórias que observam o humano pelos seus interstícios — silêncio, trauma, memória, desejo.
-      </p>
+  <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdmwuYVdLx9yMpgB-f7XDVqti0If6IblwZ1iJlx6ZAgLhrX0A/viewform">Participar do ARG</a></p>
+  <p><a href="https://sites.google.com/view/born-to-die-projeto-casulo/in%C3%ADcio">Acessar Casulo</a></p>
+</section>
 
-      <div class="hero-ctas">
-        <a href="#projeto-central" class="btn btn-outline">Projeto central</a>
-        <a href="#obras" class="btn btn-outline">Obras</a>
-        <a href="#publicacoes" class="btn btn-outline">Publicações</a>
-      </div>
+<section>
+  <h2>Obras</h2>
+  <p><a href="https://www.amazon.com.br/Infame-Historia-Biografia-Sr-Scharlathan/dp/B09WQ6P9FJ/">Infame História — Sr. Scharlathan</a></p>
+  <p><a href="https://www.amazon.com.br/Sempre-Muito-Tempo-Lucien-Louren%C3%A7o/dp/B09X6WWWKC/">Sempre Muito Tempo</a></p>
+</section>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">Born To Die</div>
-          <div class="label">Longa em finalização — FRAPA & SOL</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">O fio tênue – Caravana</div>
-          <div class="label">Obra literária que origina o universo</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">Artigo publicado</div>
-          <div class="label">Blog literário</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">Artigos no prelo</div>
-          <div class="label">Pesquisa acadêmica</div>
-        </div>
-      </div>
-    </section>
+<section>
+  <h2>Publicações</h2>
+  <p>Ensaios, artigos, textos críticos, produção acadêmica e literária.</p>
+</section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="fade-in">
-      <div class="section-tag">Sobre</div>
-      <h2>Quatro linguagens, uma voz</h2>
-      <p>
-        Escritor, roteirista e pesquisador baseado em Fortaleza, Ceará.  
-        Minha escrita se move entre literatura, cinema e investigação acadêmica, sempre a partir de corpos, afetos, traumas e silêncios.
-      </p>
-      <p>
-        <em>O fio tênue – Caravana</em> é um dos núcleos dessa trajetória — uma obra que se desdobra em outras formas: roteiro, projeto audiovisual, universo expandido.
-      </p>
-    </section>
+<section>
+  <h2>Influências</h2>
+  <p>Autores, filmes, livros que moldam a estética e o universo narrativo.</p>
+</section>
 
-    <!-- PROJETO CENTRAL -->
-    <section id="projeto-central" class="fade-in">
-      <div class="section-tag">Projeto central</div>
-      <h2>#TheBornToDieProject</h2>
+<section>
+  <h2>Histórico</h2>
+  <p>Trajetória, pesquisa, formação, atuação acadêmica.</p>
+  <p><a href="http://lattes.cnpq.br/7193399712903098">Currículo Lattes</a></p>
+</section>
 
-      <p>
-        Born To Die (nascemos para morrer) é um projeto que nasce da literatura, atravessa o roteiro e encontra o cinema.  
-        Originado de um conto, transformado em série limitada e agora finalizado como longa-metragem para inscrição no FRAPA e no SOL — Cena do Porto Iracema.
-      </p>
+<section>
+  <h2>Links</h2>
+  <p><a href="https://www.instagram.com/lucianlourencol/">Instagram</a></p>
+  <p><a href="https://www.instagram.com/abolhadaia/">Bolhadaia — Instagram</a></p>
+  <p><a href="https://www.youtube.com/@bolhadaia">Bolhadaia — YouTube</a></p>
+  <p><a href="https://chronoscorp-inc.github.io/">ChronosCorp</a></p>
+</section>
 
-      <p>
-        Este é o núcleo da minha pesquisa, da minha escrita e da minha criação.  
-        Um universo narrativo que pulsa entre trauma, memória, silêncio, desejo e sobrevivência — e que se abre como ARG, convidando pessoas a participar, investigar e habitar essa ficção.
-      </p>
+<!-- PAINEL LATERAL -->
+<div id="painel">
+  <h3>Contato Profissional</h3>
+  <button onclick="fecharPainel()" style="background:#d4af37;color:#000;padding:8px 12px;border:none;border-radius:4px;cursor:pointer;margin-bottom:20px;">Fechar</button>
 
-      <p style="font-size:0.95rem;color:var(--ink3);margin-bottom:2rem;">
-        O formulário e o site associados ao projeto são reais, mas fazem parte de uma obra cinematográfica / audiovisual / literária.  
-        Ao participar, você entra em um território híbrido entre realidade e ficção.
-      </p>
+  <div class="painel-item">
+    <details>
+      <summary>Roteiro</summary>
+      <p>lucienlourenco@gmail.com<br>Envie logline, sinopse ou proposta.</p>
+    </details>
+  </div>
 
-      <div class="hero-ctas">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmwuYVdLx9yMpgB-f7XDVqti0If6IblwZ1iJlx6ZAgLhrX0A/viewform?usp=send_form" class="btn btn-outline" target="_blank">
-          Participar do ARG
-        </a>
-        <a href="https://sites.google.com/view/born-to-die-projeto-casulo/in%C3%ADcio" class="btn btn-outline" target="_blank">
-          Universo casulo
-        </a>
-      </div>
-    </section>
+  <div class="painel-item">
+    <details>
+      <summary>Audiovisual / Cinema</summary>
+      <p>lucienlourenco@gmail.com<br>Projetos, parcerias, produção.</p>
+    </details>
+  </div>
 
-    <!-- OBRAS -->
-    <section id="obras" class="fade-in">
-      <div class="section-tag">Obras</div>
-      <h2>Obras e projetos</h2>
+  <div class="painel-item">
+    <details>
+      <summary>Literatura</summary>
+      <p>lucienlourenco@gmail.com<br>Propostas editoriais, leitura crítica.</p>
+    </details>
+  </div>
 
-      <div class="cards">
-        <div class="card">
-          <h3>O fio tênue – Caravana</h3>
-          <p>
-            Obra literária que acompanha corpos em deslocamento, trauma, silêncio e sobrevivência.  
-            Núcleo estético e narrativo que se desdobra em projetos audiovisuais e universos expandidos.
-          </p>
-        </div>
+  <div class="painel-item">
+    <details>
+      <summary>Ensaios / Artigos</summary>
+      <p>lucienlourenco@gmail.com<br>Envie tema, abordagem e objetivo.</p>
+    </details>
+  </div>
 
-        <div class="card">
-          <h3>Born To Die — longa-metragem</h3>
-          <p>
-            Projeto audiovisual originado de conto e série limitada, em finalização para inscrição no FRAPA e no SOL — Cena do Porto Iracema.  
-            Parte central de #TheBornToDieProject.
-          </p>
-        </div>
+  <div class="painel-item">
+    <details>
+      <summary>Tradução</summary>
+      <p>lucienlourenco@gmail.com<br>Texto, idioma, prazo e finalidade.</p>
+    </details>
+  </div>
 
-        <div class="card">
-          <h3>Roteiros e séries</h3>
-          <p>
-            Desenvolvimento de roteiros de ficção e projetos seriados que dialogam com literatura, crítica e pesquisa, sempre em torno de afetos, memória e fissuras do cotidiano.
-          </p>
-        </div>
-      </div>
-    </section>
+  <div class="painel-item">
+    <details>
+      <summary>Orientação Acadêmica</summary>
+      <p>lucienlourenco@gmail.com<br>Envie tema, área e objetivo.</p>
+    </details>
+  </div>
 
-    <!-- PUBLICAÇÕES -->
-    <section id="publicacoes" class="fade-in">
-      <div class="section-tag">Publicações</div>
-      <h2>Publicações e pesquisa</h2>
+  <div class="painel-item">
+    <details>
+      <summary>O Fio Tênue</summary>
+      <p>lucienlourenco@gmail.com<br>Canal para leitores, editoras e crítica.</p>
+    </details>
+  </div>
 
-      <p>
-        Entre literatura e academia, mantenho uma produção que inclui artigos publicados, textos em blog, ensaios críticos e artigos no prelo.
-      </p>
+  <div class="painel-item">
+    <details>
+      <summary>Born To Die — Longa</summary>
+      <p>lucienlourenco@gmail.com<br>Produtoras, festivais, parceiros.</p>
+    </details>
+  </div>
 
-      <ul class="pub-list">
-        <li>
-          <span>Artigo publicado</span><br>
-          Texto em blog literário sobre narrativa, trauma e memória.
-        </li>
-        <li>
-          <span>Artigos no prelo</span><br>
-          Pesquisa acadêmica em andamento, atravessando cinema, literatura e teoria crítica.
-        </li>
-      </ul>
-    </section>
+  <div class="painel-item">
+    <details>
+      <summary>ARG — Born To Die Project</summary>
+      <p>lucienlourenco@gmail.com<br>Este canal faz parte de uma obra audiovisual.</p>
+    </details>
+  </div>
 
-    <!-- CONTATO -->
-    <section id="contato" class="fade-in">
-      <div class="section-tag">Contato</div>
-      <h2>Contato</h2>
-
-      <p>
-        Para convites, projetos, parcerias, pesquisa, roteiros ou imprensa:
-      </p>
-
-      <div class="contact-info">
-        📧 contato@seudominio.com<br>
-        📱 +55 (xx) xxxx-xxxx<br>
-        📍 Fortaleza – CE
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Lucian Lourenço — Todos os direitos reservados.</p>
-    <p style="margin-top:0.5rem;">Site desenvolvido em GitHub Pages</p>
-  </footer>
+</div>
 
 </body>
 </html>
