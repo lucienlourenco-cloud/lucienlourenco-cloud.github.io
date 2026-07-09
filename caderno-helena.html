@@ -1,103 +1,221 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BORN TO DIE // CADERNO DE HELENA</title>
+    <title>O Caderno de Helena — Born to Die</title>
     <style>
+        :root {
+            --bg-dark: #07070a;
+            --bg-card: #11111a;
+            --border-color: #222235;
+            --accent-blue: #004494;  /* O terno de Gabriel */
+            --accent-red: #cc241d;   /* O trauma de Helena */
+            --accent-gold: #d79921;  /* O Sol em Cena */
+            --text-main: #ebdbb2;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
         body {
-            background-color: #0d0d0d;
-            color: #f0f0f0;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Georgia', serif;
             margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
-        .container {
+
+        .notebook-container {
+            width: 100%;
             max-width: 800px;
-            width: 100%;
-            text-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            padding: 30px;
         }
-        h1 {
-            color: #ff3344;
-            font-size: 28px;
-            text-shadow: 0 0 10px #ff3344;
-            margin-bottom: 30px;
+
+        .notebook-header {
+            border-bottom: 2px dashed var(--accent-blue);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
         }
-        .book-cover {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 179, 0, 0.3);
-            margin-bottom: 30px;
+
+        .notebook-header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #ffffff;
         }
-        .text-log {
-            background-color: #141414;
-            border-left: 4px solid #ffb300;
-            padding: 20px;
-            text-align: left;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: #e0e0e0;
+
+        .meta-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #7c6f64;
+            text-transform: uppercase;
+            margin-top: 5px;
         }
-        .audio-section {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 8px;
+
+        /* CARDS DAS MÚSICAS DIEGÉTICAS */
+        .music-section {
+            background: #161622;
+            border-left: 4px solid var(--accent-red);
+            padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid #333;
+            border-radius: 4px;
         }
-        .audio-section h3 {
-            color: #ffb300;
-            margin-top: 0;
-            font-size: 16px;
+
+        .music-title {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+            color: #ffffff;
         }
-        audio {
-            width: 100%;
+
+        .diegetic-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: #282828;
+            color: var(--accent-gold);
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .suno-button {
+            display: inline-block;
+            background: var(--accent-red);
+            color: #ffffff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: bold;
             margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .suno-button:hover {
+            background: #9d0006;
+        }
+
+        /* CLIQUES INTERATIVOS (CODEX) */
+        .codex-node {
+            background: #1d2021;
+            border: 1px solid #3c3836;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .node-trigger {
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .node-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 15px;
+            font-size: 0.95rem;
+            color: #bdae93;
+            line-height: 1.5;
+        }
+
+        .node-content.open {
+            max-height: 300px;
+            padding-bottom: 15px;
+            border-top: 1px solid #3c3836;
+            margin-top: 5px;
+        }
+
+        /* TEXTO CENSURADO DO ARG */
+        .tarja-preta {
+            background: #000000;
+            color: #000000;
+            padding: 0 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tarja-preta.revelado {
+            background: transparent;
+            color: var(--accent-red);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>BORN TO DIE // ARQUIVO DESBLOQUEADO</h1>
-        
-        <!-- LINK DA SUA IMAGEM DO LIVRO COM O BRASÃO DA FORTUNA -->
-        <img src="https://unsplash.com" class="anna" alt="Caderno de Memórias">
 
-        <div class="text-log">
-            <strong>[REGISTRO CLÍNICO COGNITIVO — DR. GABRIEL AMON]</strong><br><br>
-            As unhas roídas de Helena Jamil Turi continuam marcando as páginas deste caderno. Hoje, enquanto as notas de um jazz tocavam ao fundo no rádio, ela confessou que a jaqueta verde era seu único escudo nas noites de chuva na calçada da boate. O trauma crônico causou uma fissura em sua percepção temporal. Ela não consegue lembrar do que aconteceu antes da intervenção na rua, mas o nome "Romualdo" gera um colapso imediato em seu córtex pré-frontal.<br><br>
-            Meu carcinoma pulmonar avança. Sinto os estertores e a falta de ar a cada nova página datilografada. A ópera "Nessun Dorma" se tornou nossa única trégua. Enquanto a voz do soprano clama pelo fim da noite, eu sei que nós dois fomos desenhados sob o mesmo veredito inexorável: nascemos para morrer. Mas o que escrevemos aqui com nanquim e sangue jamais será esquecido.
-        </div>
+<div class="notebook-container">
+    <div class="notebook-header">
+        <h1>📓 O Caderno de Helena — Codex Interativo</h1>
+        <div class="meta-tag">ChronosCorp Ledger // Registro Transmídia Ativo</div>
+    </div>
 
-        <!-- PLAYERS PARA OS SEUS ARQUIVOS .WAV -->
-        <div class="audio-section">
-            <h3>FAIXA 1: Transição O Fortuna & Flamenco (Abertura)</h3>
-            <audio controls>
-                <source src="SUA_GUIA_FAIXA_1.wav" type="audio/wav">
-                Seu navegador não suporta o player de áudio.
-            </audio>
-        </div>
+    <p style="font-style: italic; color: #a89984; margin-bottom: 25px;">"Aqui, os discos herdados e as passagens escritas à mão colidem com os mecanismos biológicos da memória."</p>
 
-        <div class="audio-section">
-            <h3>FAIXA 2: Born To Die (Refrão Metal Gótico)</h3>
-            <audio controls>
-                <source src="SUA_GUIA_FAIXA_2.wav" type="audio/wav">
-                Seu navegador não suporta o player de áudio.
-            </audio>
-        </div>
+    <!-- SEÇÃO DE AUDIO (SUNO PLAYLIST) -->
+    <h2 style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-gold);">🔊 ARQUIVO SONORO (PLAYLIST ORIGINAL)</h2>
+    
+    <div class="music-section">
+        <h3 class="music-title">JUST GONE & Museum of Lies (Opção Anna Maz)</h3>
+        <span class="diegetic-badge">Som Diegético // Origem: Ancestralidade Árabe-Flamenca e Rock de Helena</span>
+        <p style="margin: 0; font-size: 0.9rem;">O choro do violino árabe e a guitarra flamenca entram fisicamente na cena como o reflexo sonoro do trauma e da juventude fragmentada.</p>
+        <a href="https://suno.com" target="_blank" class="suno-button">
+            ▶ Abrir Trilha no Suno
+        </a>
+    </div>
 
-        <div class="audio-section">
-            <h3>FAIXA 3: Clímax Operístico (Nessun Dorma / Turandot)</h3>
-            <audio controls>
-                <source src="SUA_GUIA_FAIXA_3.wav" type="audio/wav">
-                Seu navegador não suporta o player de áudio.
-            </audio>
+    <div class="music-section" style="border-left-color: var(--accent-blue);">
+        <h3 class="music-title">I GAVE IT (Late-Night Jazz)</h3>
+        <span class="diegetic-badge">Som Diegético // Dispositivo: Vitrola de Rolo de Gabriel</span>
+        <p style="margin: 0; font-size: 0.9rem;">O jazz como apreciação herdada de seu pai. Funciona em cena como uma barreira acústica de proteção e refúgio contra a violência das ruas.</p>
+    </div>
+
+    <!-- SEÇÃO CODEX INTERATIVO (CLIQUES) -->
+    <h2 style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-gold); margin-top: 30px;">🧩 CONEXÕES DE CENA & NEUROCIÊNCIA</h2>
+
+    <!-- NÓ 1 -->
+    <div class="codex-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>🎭 O PERSONAGEM INVISÍVEL: AS ÓPERAS</span><span>[+]</span></div>
+        <div class="node-content">
+            As óperas clássicas de Gabriel (Turandot/Nessun Dorma, O Mio Babbino Caro, La Traviata) são heranças afetivas de seu pai e rodam na vitrola de forma 100% diegética. Elas agem como um personagem invisível no apartamento, ditando a ironia do destino: a ária de triunfo ressoa enquanto o câncer pulmonar avança, criando um espelho idêntico ao colapso pulmonar de Violetta em <em>La Traviata</em>.
         </div>
     </div>
+
+    <!-- NÓ 2 -->
+    <div class="codex-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>🧠 NEUROPSICOLOGIA APLICADA (GABRIEL)</span><span>[+]</span></div>
+        <div class="node-content">
+            Como o cérebro lida com o intolerável? Helena usa a escrita e as teorias científicas que aprendeu com Gabriel para codificar suas próprias memórias no manuscrito de couro durante seu colapso no hospital, enfrentando as marcas da violência de Romualdo através da literatura.
+        </div>
+    </div>
+
+    <!-- NÓ 3 (COM TARJA DO ARG) -->
+    <div class="codex-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>👁️ DOCUMENTO CORROMPIDO (PISTA DO ARG)</span><span>[+]</span></div>
+        <div class="node-content" onclick="event.stopPropagation();">
+            "Entre o silêncio do jazz e o impacto trágico da ópera, a verdade de Born to Die foi selada através de um <span class="tarja-preta" onclick="this.classList.toggle('revelado')">AFEASTAMENTO FRIO</span> sob a luz impiedosa do sol."
+            <br><br><small style="color: #7c6f64;">(Clique na tarja preta para revelar a palavra-chave do formulário)</small>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleNode(block) {
+    const content = block.querySelector('.node-content');
+    const trigger = block.querySelector('.node-trigger span:last-child');
+    content.classList.toggle('open');
+    trigger.textContent = content.classList.contains('open') ? '[-]' : '[+]';
+}
+</script>
+
 </body>
 </html>
