@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronosCorp // Codex Interativo & Acervo Sonoro</title>
+    <style>
+        :root {
+            --bg-terminal: #050508;
+            --bg-panel: #0d0d16;
+            --border-glow: #00ff66; /* Verde terminal do ARG */
+            --text-main: #33ff33;
+            --text-muted: #88cc88;
+            --font-mono: 'Courier New', Courier, monospace;
+            --accent-red: #ff3333;
+        }
+
+        body {
+            background-color: var(--bg-terminal);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glow);
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            padding: 25px;
+        }
+
+        .terminal-header {
+            border-bottom: 2px solid var(--border-glow);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .terminal-header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* ABA DE ACESSO À PLAYLIST DO SUNO */
+        .playlist-block {
+            background: #111a14;
+            border: 1px dashed var(--border-glow);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .suno-btn {
+            display: inline-block;
+            background: var(--border-glow);
+            color: #000000;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: 0.2s ease;
+        }
+
+        .suno-btn:hover {
+            background: #00cc52;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+            transform: scale(1.02);
+        }
+
+        /* CARD DE DETALHAMENTO DAS MÚSICAS DURANTE O JOGO */
+        .track-spec {
+            background: #08080f;
+            border: 1px solid #1a2e1a;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* CLIQUES INTERATIVOS DE CONTEÚDO (CODEX) */
+        .terminal-node {
+            background: #08080f;
+            border: 1px solid #1a2e1a;
+            margin-bottom: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .node-trigger {
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .node-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 12px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .node-content.open {
+            max-height: 400px;
+            padding-bottom: 12px;
+            border-top: 1px dashed #1a2e1a;
+            margin-top: 5px;
+        }
+
+        .tarja-preta {
+            background: var(--border-glow);
+            color: var(--border-glow);
+            padding: 0 3px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tarja-preta.revelado {
+            background: transparent;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal-container">
+    <div class="terminal-header">
+        <h1>📊 CHRONOSCORP // CODEX SONORO E ACERVO</h1>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 5px;">MECANISMOS DE ANÁLISE SENSORIAL // COORDENAÇÃO <span class="blink">■</span></div>
+    </div>
+
+    <!-- SEÇÃO CENTRAL: PLAYLIST DO SUNO -->
+    <div class="playlist-block">
+        <h2 style="font-size: 1.1rem; margin: 0; color: #ffffff;">🔊 ACERVO MUSICAL EXCLUSIVO: THE BORN TO DIE PROJECT</h2>
+        <p style="font-size: 0.85rem; margin-top: 10px; color: var(--text-muted);">Acesse a playlist oficial gerada com as frequências sonoras da ópera, jazz, toques de flamenco e rock.</p>
+        
+        <a href="https://suno.com" target="_blank" class="suno-btn">
+            ▶️ INICIAR TRANSMISSÃO DA PLAYLIST (SUNO)
+        </a>
+
+        <div class="track-spec">
+            <strong>[LOG DE CONEXÃO AUDIOVISUAL]:</strong><br>
+            • <em>JUST GONE / Museum of Lies (Anna Maz Option)</em>: Metal sinfônico, violino árabe e flamenco. O reflexo biográfico da juventude e ancestralidade de Helena.<br>
+            • <em>I GAVE IT (Late-Night Jazz)</em>: O refúgio e apreço intelectual de Gabriel herdado de seu pai.
+        </div>
+    </div>
+
+    <!-- CLIQUES INTERATIVOS (CONEXÃO COM OS LIVROS E MITOLOGIA) -->
+    <h3 style="font-size: 0.9rem; color: #ffffff; border-bottom: 1px solid #1a2e1a; padding-bottom: 5px; margin-top: 30px;">🧩 EXPANSÃO DO CONHECIMENTO (ARQUIVOS CRIPTOGRAFADOS)</h3>
+
+    <!-- CLIQUE 1: AS ÓPERAS COMO PERSONAGEM -->
+    <div class="terminal-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>[ARQUIVO 01] - DISCOS HERDADOS & REPERTÓRIO OPERÍSTICO</span><span>[+]</span></div>
+        <div class="node-content">
+            As faixas clássicas de Gabriel (<em>Turandot/Nessun Dorma, O Mio Babbino Caro, La Traviata</em>) operam de forma estritamente diegética. Elas funcionam como um personagem invisível no cenário. Em uma conexão visceral, a finitude pulmonar de Gabriel espelha a ópera de Verdi, onde a vida é ceifada no ápice da conexão afetiva. Nada ocorre por acaso.
+        </div>
+    </div>
+
+    <!-- CLIQUE 2: CONCEITOS DO FORMULÁRIO -->
+    <div class="terminal-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>[ARQUIVO 02] - INTERATIVIDADE DO FORMULÁRIO DE TRIAGEM</span><span>[+]</span></div>
+        <div class="node-content">
+            Este espaço atua sob os parâmetros da análise sensorial. Os dados coletados no formulário de pesquisa servem como um repositório anônimo para rastrear os mecanismos psicológicos e as somatizações físicas provocadas por gatilhos acústicos.
+        </div>
+    </div>
+
+    <!-- CLIQUE 3: TARJA DO ARG -->
+    <div class="terminal-node" onclick="toggleNode(this)">
+        <div class="node-trigger"><span>[ARQUIVO 03] - PROTOCOLO DE ACESSO DO MANUSCRITO</span><span>[+]</span></div>
+        <div class="node-content" onclick="event.stopPropagation();">
+            "As memórias registradas no caderno de couro revelam que o tempo é implacável. O verdadeiro destino das almas fragmentadas foi decodificado sob a luz do <span class="tarja-preta" onclick="this.classList.toggle('revelado')">SOL EM CENA</span>."
+            <br><br><small style="color: #66aa66;">(Clique na tarja verde para descriptografar o termo)</small>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleNode(block) {
+    const content = block.querySelector('.node-content');
+    const trigger = block.querySelector('.node-trigger span:last-child');
+    content.classList.toggle('open');
+    trigger.textContent = content.classList.contains('open') ? '[-]' : '[+]';
+}
+</script>
+
+</body>
+</html>
