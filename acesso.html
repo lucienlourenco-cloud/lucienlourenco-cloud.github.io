@@ -1,49 +1,802 @@
-<!DOCTYPE html>
-<html>
+1<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>BORN TO DIE // ACCESS RESTRICTED</title>
-    <style>
-        body {
-            background-color: #0d0d0d !important;
-            color: #00ffcc !important;
-            font-family: 'Courier New', Courier, monospace !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            height: 90vh !important;
-            margin: 0 !important;
-        }
-        .matrix-glitch {
-            color: #ff3344 !important;
-            font-size: 24px !important;
-            text-shadow: 0 0 8px #ff3344 !important;
-            margin-bottom: 20px !important;
-        }
-        .input-box {
-            background: transparent !important;
-            border: 1px solid #00ffcc !important;
-            color: #ffb300 !important;
-            padding: 10px !important;
-            font-size: 18px !important;
-            text-align: center !important;
-            outline: none !important;
-            box-shadow: 0 0 10px #00ffcc !important;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lucian Lourenço — Escritor, Roteirista, Pesquisador e Professor. Fortaleza, Ceará.">
+<title>Lucian Lourenço</title>
+<style>
+  /* ── TOKENS ─────────────────────────────────────────────── */
+  :root {
+    --preto:    #0a0a0a;
+    --cinza-f:  #111111;
+    --cinza-m:  #1e1e1e;
+    --cinza-b:  #2a2a2a;
+    --branco:   #f0ede8;
+    --ouro:     #c9a84c;
+    --ouro-l:   #e8d08a;
+    --cobre:    #8b5e3c;
+    --vermelho: #8b1a1a;
+    --tipo-d:   'Georgia', 'Times New Roman', serif;
+    --tipo-b:   'Courier New', 'Courier', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: var(--tipo-d);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TIPOGRAFIA ─────────────────────────────────────────── */
+  h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ouro); }
+  h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; }
+  p  { color: #c8c4bc; }
+
+  a { color: var(--ouro); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--ouro-l); }
+
+  /* ── LAYOUT ─────────────────────────────────────────────── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 96px 0; border-bottom: 1px solid var(--cinza-b); }
+  section:last-child { border-bottom: none; }
+
+  /* ── NAV ─────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cinza-b);
+    padding: 18px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-marca {
+    font-family: var(--tipo-b);
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--tipo-b);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ouro); }
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 0 96px;
+    position: relative;
+    border-bottom: 1px solid var(--cinza-b);
+    overflow: hidden;
+  }
+
+  /* Linha dourada vertical — a assinatura visual */
+  #hero::before {
+    content: '';
+    position: absolute;
+    left: 32px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--ouro) 30%, var(--ouro) 70%, transparent);
+    opacity: 0.4;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--tipo-b);
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .hero-nome {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--branco);
+    margin-bottom: 16px;
+  }
+  .hero-nome em {
+    font-style: italic;
+    color: var(--ouro);
+  }
+
+  .hero-sub {
+    font-family: var(--tipo-b);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .hero-bio {
+    max-width: 600px;
+    font-size: 1.15rem;
+    color: #a8a49e;
+    line-height: 1.8;
+    border-left: 2px solid var(--ouro);
+    padding-left: 24px;
+    margin-bottom: 48px;
+  }
+
+  .hero-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--tipo-b);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border: 1px solid var(--ouro);
+    color: var(--ouro);
+    transition: all 0.2s;
+  }
+  .btn:hover { background: var(--ouro); color: var(--preto); }
+  .btn-ghost {
+    border-color: var(--cinza-b);
+    color: #888;
+  }
+  .btn-ghost:hover { border-color: var(--ouro); color: var(--ouro); background: transparent; }
+
+  /* ── SECAO LABEL ────────────────────────────────────────── */
+  .sec-label {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cinza-b);
+  }
+
+  /* ── SOBRE ───────────────────────────────────────────────── */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .sobre-texto p { margin-bottom: 20px; }
+  .sobre-dados { display: flex; flex-direction: column; gap: 24px; }
+  .dado {
+    border-left: 1px solid var(--cinza-b);
+    padding-left: 20px;
+  }
+  .dado-rotulo {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .dado p { font-size: 14px; color: #a8a49e; line-height: 1.6; }
+
+  /* ── FRENTES ────────────────────────────────────────────── */
+  .frentes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--cinza-b);
+    border: 1px solid var(--cinza-b);
+  }
+  .frente {
+    background: var(--cinza-f);
+    padding: 40px;
+    transition: background 0.2s;
+  }
+  .frente:hover { background: var(--cinza-m); }
+  .frente-num {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+  .frente h3 { color: var(--branco); margin-bottom: 12px; font-size: 1.1rem; }
+  .frente p  { font-size: 14px; color: #888; line-height: 1.7; }
+
+  /* ── OBRAS ──────────────────────────────────────────────── */
+  .obras-lista { display: flex; flex-direction: column; gap: 0; }
+  .obra {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--cinza-b);
+    transition: padding-left 0.2s;
+  }
+  .obra:hover { padding-left: 8px; }
+  .obra:last-child { border-bottom: none; }
+  .obra-tipo {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+  .obra-titulo {
+    font-size: 1.2rem;
+    color: var(--branco);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .obra-desc { font-size: 14px; color: #888; line-height: 1.7; max-width: 560px; }
+  .obra-status {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid;
+    white-space: nowrap;
+    align-self: start;
+    margin-top: 4px;
+  }
+  .status-lancamento { border-color: var(--ouro); color: var(--ouro); }
+  .status-em-curso   { border-color: #555; color: #777; }
+  .status-publicado  { border-color: #3a6b3a; color: #7cb87c; }
+  .status-selecao    { border-color: var(--cobre); color: #c08060; }
+
+  /* ── ENSAIOS ────────────────────────────────────────────── */
+  .ensaios-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 40px;
+  }
+  .ensaios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--cinza-b);
+    border: 1px solid var(--cinza-b);
+  }
+  .ensaio {
+    background: var(--cinza-f);
+    padding: 32px;
+    transition: background 0.2s;
+  }
+  .ensaio:hover { background: var(--cinza-m); }
+  .ensaio-num {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+  .ensaio h3 { font-size: 1rem; color: var(--branco); margin-bottom: 8px; }
+  .ensaio p  { font-size: 13px; color: #777; }
+  .ensaio.publicado { border-left: 2px solid var(--ouro); }
+  .ensaio.em-breve  { opacity: 0.5; }
+
+  /* ── PROJETOS DIGITAIS ──────────────────────────────────── */
+  .digitais-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .digital {
+    border: 1px solid var(--cinza-b);
+    padding: 36px;
+    transition: border-color 0.2s;
+  }
+  .digital:hover { border-color: var(--ouro); }
+  .digital-icone {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .digital h3 { color: var(--branco); margin-bottom: 10px; }
+  .digital p  { font-size: 14px; color: #888; line-height: 1.7; margin-bottom: 16px; }
+  .digital a  { font-family: var(--tipo-b); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* ── MEDIUM ─────────────────────────────────────────────── */
+  .medium-lista { display: flex; flex-direction: column; gap: 0; }
+  .medium-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--cinza-b);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    transition: padding-left 0.2s;
+  }
+  .medium-item:hover { padding-left: 8px; }
+  .medium-item:last-child { border-bottom: none; }
+  .medium-idioma {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .medium-item h3 { font-size: 1.05rem; color: var(--branco); font-style: italic; }
+  .medium-item a.leia {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    border: 1px solid var(--ouro);
+    padding: 8px 16px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .medium-item a.leia:hover { background: var(--ouro); color: var(--preto); }
+
+  /* ── LINKS EXTERNOS ─────────────────────────────────────── */
+  .links-externos {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .link-ext {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    border: 1px solid var(--cinza-b);
+    padding: 10px 20px;
+    transition: all 0.2s;
+  }
+  .link-ext:hover { border-color: var(--ouro); color: var(--ouro); }
+
+  /* ── CITAÇÃO ─────────────────────────────────────────────── */
+  .citacao-bloco {
+    border-left: 3px solid var(--ouro);
+    padding: 32px 40px;
+    background: var(--cinza-f);
+    margin: 48px 0;
+  }
+  .citacao-bloco blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--branco);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .citacao-bloco cite {
+    font-family: var(--tipo-b);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--ouro);
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ── CONTATO ─────────────────────────────────────────────── */
+  #contato { border-bottom: none; }
+  .contato-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .contato-texto h2 { font-size: 1.1rem; margin-bottom: 20px; }
+  .contato-texto p  { margin-bottom: 32px; }
+  .contato-dados { display: flex; flex-direction: column; gap: 20px; }
+  .contato-item {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .contato-item span:first-child {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--ouro);
+    text-transform: uppercase;
+  }
+  .contato-item span:last-child { font-size: 14px; color: #888; }
+
+  /* ── RODAPÉ ─────────────────────────────────────────────── */
+  footer {
+    padding: 40px 32px;
+    border-top: 1px solid var(--cinza-b);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  footer p {
+    font-family: var(--tipo-b);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    nav { padding: 16px; }
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 64px 0; }
+    #hero { padding: 100px 0 64px; }
+    .sobre-grid, .frentes-grid, .ensaios-grid,
+    .digitais-grid, .contato-inner { grid-template-columns: 1fr; gap: 32px; }
+    .obra { grid-template-columns: 1fr; }
+    .obra-status { width: fit-content; }
+  }
+</style>
 </head>
 <body>
-    <div class="matrix-glitch">SYS.O_HOMEM_QUE_ESTUDAVA_MEMORIAS // RESTRICTED</div>
-    <p style="color: #ffb300 !important;">DR. GABRIEL AMON - LOGIN PROTOCOL</p>
-    <input type="text" id="arg-key" class="input-box" placeholder="ENTER ACCESS KEY..." maxlength="20" oninput="checkKey(this.value)">
 
-    <script>
-    function checkKey(val) {
-      if(val.trim() === "3") {
-       window.location.href = "caderno-helena.html";
-        }
-    }
-    </script>
+<!-- ── NAV ─────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-marca">Lucian Lourenço</div>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#obras">Obras</a>
+    <a href="#ensaios">Ensaios</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#medium">Medium</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Escritor · Roteirista · Pesquisador · Professor</div>
+    <h1 class="hero-nome">Lucian<br><em>Lourenço</em></h1>
+    <div class="hero-sub">Fortaleza, Ceará — ORCID 0000-0001-5154-4882</div>
+    <p class="hero-bio">
+      Griô contemporâneo. Matéria escura, afeto, memória.<br>
+      Algo que algoritmos não sincronizam.<br>
+      A escrita como ontologia crítica de si mesmo — travessia, não fuga.
+    </p>
+    <div class="hero-links">
+      <a href="#obras" class="btn">Obras</a>
+      <a href="https://medium.com/@lucianlourenco" target="_blank" class="btn btn-ghost">Medium</a>
+      <a href="#contato" class="btn btn-ghost">Contato</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE ─────────────────────────────────────────────────── -->
+<section id="sobre">
+  <div class="container">
+    <div class="sec-label">Sobre</div>
+    <div class="sobre-grid">
+      <div class="sobre-texto">
+        <p>Antonio Lucieudo Lourenço da Silva — nome artístico <strong style="color:var(--branco)">Lucian Lourenço</strong> — é escritor, roteirista, pesquisador e professor universitário radicado em Fortaleza, Ceará. Mestre em Psicologia pela Universidade Federal do Ceará (UFC, 2012), com dissertação sobre subjetividade e deficiência física a partir de Foucault.</p>
+        <p>Atua como professor de Extensão Curricular no curso de Medicina da UniChristus e como servidor público na Secretaria Municipal de Saúde de Fortaleza há mais de 14 anos. Sua produção intelectual transita entre a literatura, o roteiro, a pesquisa acadêmica e a crítica cultural — articulando Fanon, Foucault, Mbembe, Fernando Pessoa e a tradição literária afro-brasileira.</p>
+        <p>Publica na série de ensaios <em>Operários de Si Mesmos</em> — no Medium e no Blog de Eliomar de Lima — sobre trabalho, tecnologia, subjetividade e o tempo que o algoritmo rouba. Sua postura intelectual: a "ontologia crítica de nós mesmos", no sentido foucaultiano.</p>
+      </div>
+      <div class="sobre-dados">
+        <div class="dado">
+          <div class="dado-rotulo">Formação</div>
+          <p>Mestre em Psicologia — UFC (2012)<br>Especialização em Saúde Mental<br>Graduação em Psicologia</p>
+        </div>
+        <div class="dado">
+          <div class="dado-rotulo">Instituições</div>
+          <p>UniChristus — Professor de Extensão Curricular (Medicina)<br>SMS Fortaleza — Servidor público (14 anos)</p>
+        </div>
+        <div class="dado">
+          <div class="dado-rotulo">Publicações</div>
+          <p><em>Sempre É Muito Tempo</em> (2013)<br>Conto em Portal Literal da Terra (2007)<br><em>O Fio Tênue</em> (no prelo — Caravana Grupo Editorial)</p>
+        </div>
+        <div class="dado">
+          <div class="dado-rotulo">Colaborações</div>
+          <p>Profa. Dra. Luciana Lobo Miranda (UFC/PPGP)<br>Jornalista Eliomar de Lima</p>
+        </div>
+        <div class="dado">
+          <div class="dado-rotulo">ORCID</div>
+          <p>0000-0001-5154-4882</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FRENTES ────────────────────────────────────────────────── -->
+<section id="frentes">
+  <div class="container">
+    <div class="sec-label">Frentes de atuação</div>
+    <div class="frentes-grid">
+      <div class="frente">
+        <div class="frente-num">01</div>
+        <h3>Escritor & Roteirista</h3>
+        <p>Contos, romances, séries e roteiros para cinema e televisão. Selecionado para o FRAPA. Submetendo ao Sol em Cena / Ibermedia.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-num">02</div>
+        <h3>Pesquisador Acadêmico</h3>
+        <p>Psicologia social crítica, estudos decoloniais, subjetividades negras e algoritmos. Artigos submetidos a Psicologia & Sociedade, Revista da ABPN, Race & Class.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-num">03</div>
+        <h3>Professor & Extensionista</h3>
+        <p>Docência em medicina (UniChristus), extensão universitária em ILPIs com estudantes de Medicina S4. Metodologias ativas e pensamento crítico.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-num">04</div>
+        <h3>Produtor de Conteúdo Digital</h3>
+        <p>Universos transmídia, ARG, canais de reflexão sobre IA e sociedade. Criador de @abolhadaia e do universo Chronos Corp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OBRAS ─────────────────────────────────────────────────── -->
+<section id="obras">
+  <div class="container">
+    <div class="sec-label">Obras</div>
+
+    <div class="citacao-bloco">
+      <blockquote>"Escrever não é fugir do mundo. É atravessá-lo com os olhos abertos."</blockquote>
+      <cite>Lucian Lourenço</cite>
+    </div>
+
+    <div class="obras-lista">
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Romance · Transmídia · Longa-metragem</div>
+          <div class="obra-titulo">Born to Die — O Homem Que Estudava Memórias</div>
+          <p class="obra-desc">Gabriel, neuropsicólogo na casa dos 40 com diagnóstico terminal, e Helena, sobrevivente de 23 anos com passado difícil. Núcleo temático: memória, testemunho, escrita como resistência ao desaparecimento. Trilha com mais de 60 faixas originais. Submetido ao Sol em Cena / Porto Iracema das Artes / Ibermedia.</p>
+        </div>
+        <span class="obra-status status-selecao">Edital Sol em Cena</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Coletânea de contos</div>
+          <div class="obra-titulo">O Fio Tênue</div>
+          <p class="obra-desc">21 contos em três seções: <em>A Carne do Mundo</em>, <em>Os que Ficam</em>, <em>O Fio Tênue</em>. Contrato assinado com a Caravana Grupo Editorial (editor Leonardo Costaneto). Capa: fio laranja, Pixabay.</p>
+        </div>
+        <span class="obra-status status-lancamento">No prelo</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Conto</div>
+          <div class="obra-titulo">Tudo Pronto, Escanteio</div>
+          <p class="obra-desc">Voz de um tradutor voluntário que nunca entendeu futebol. Estilo digressivo-interruptivo. Selecionado pela revista <strong style="color:var(--branco)">Subtextos</strong> (Copa do Mundo, junho 2026).</p>
+        </div>
+        <span class="obra-status status-publicado">Publicado</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Minissérie · Sci-Fi · ARG</div>
+          <div class="obra-titulo">O Tecido Invisível do Nada — Chronos Corp</div>
+          <p class="obra-desc">Em um mundo onde as Big Techs prendem a humanidade em loops de memória via V-Chronos, uma neurocientista negra com Alzheimer e um primata cyborg chamado Babel são a única chave para colapsar o Simulador Primal. 4 episódios. Site ARG ativo em chronoscorp-inc.github.io.</p>
+        </div>
+        <span class="obra-status status-em-curso">Em produção</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Série · Noir · Fortaleza</div>
+          <div class="obra-titulo">Apostasia</div>
+          <p class="obra-desc">Série noir com protagonista Enzo, ambientada em Fortaleza. Selecionada para pitch no FRAPA.</p>
+        </div>
+        <span class="obra-status status-em-curso">Selecionada FRAPA</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Série · Ficção Científica</div>
+          <div class="obra-titulo">Zeus-Mor — O Tecido Invisível do Nada</div>
+          <p class="obra-desc">Série limitada de ficção científica com o padre Gabriel, Lena Vasquez e Emeka Oduya como cofundadores da IA Zeus-Mor. Pacote completo: bíblia, episódios 1–6, pitch deck.</p>
+        </div>
+        <span class="obra-status status-em-curso">Em desenvolvimento</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Romance</div>
+          <div class="obra-titulo">Sempre É Muito Tempo</div>
+          <p class="obra-desc">Primeiro romance publicado. 2013.</p>
+        </div>
+        <span class="obra-status status-publicado">Publicado</span>
+      </div>
+
+      <div class="obra">
+        <div>
+          <div class="obra-tipo">Romance híbrido</div>
+          <div class="obra-titulo">O Inventário das Ruínas Vivas</div>
+          <p class="obra-desc">Romance em três vozes: Pessoa, Tomás Breu, O Escriba. Personagem Samira de presença ambígua.</p>
+        </div>
+        <span class="obra-status status-em-curso">Em desenvolvimento</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ENSAIOS ────────────────────────────────────────────────── -->
+<section id="ensaios">
+  <div class="container">
+    <div class="sec-label">Ensaios — Operários de Si Mesmos</div>
+    <p style="color:#888;margin-bottom:40px;max-width:600px;font-size:15px;">Série de 8 ensaios sobre trabalho, tecnologia, subjetividade e o tempo que o algoritmo rouba. Publicados no Medium e no Blog de Eliomar de Lima.</p>
+
+    <div class="ensaios-grid">
+      <div class="ensaio publicado">
+        <div class="ensaio-num">Ensaio 01</div>
+        <h3>Operários de Si Mesmos</h3>
+        <p>O que acontece quando a engrenagem que nos tritura tem a forma de uma tela que brilha e um número que sobe. Publicado no Blog de Eliomar de Lima, junho 2026.</p>
+        <a href="https://medium.com/@lucianlourenco" target="_blank" style="display:inline-block;margin-top:16px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);">Ler →</a>
+      </div>
+      <div class="ensaio em-breve">
+        <div class="ensaio-num">Ensaio 02</div>
+        <h3>No Man's Land do Job</h3>
+        <p>A terra de ninguém do trabalho contemporâneo — entre a precarização e a promessa da autonomia.</p>
+      </div>
+      <div class="ensaio em-breve">
+        <div class="ensaio-num">Ensaio 03</div>
+        <h3>Em breve</h3>
+        <p>—</p>
+      </div>
+      <div class="ensaio em-breve">
+        <div class="ensaio-num">Ensaio 04–08</div>
+        <h3>Em desenvolvimento</h3>
+        <p>Acompanhe no Medium e no Blog de Eliomar de Lima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJETOS DIGITAIS ──────────────────────────────────────── -->
+<section id="projetos">
+  <div class="container">
+    <div class="sec-label">Projetos digitais</div>
+    <div class="digitais-grid">
+
+      <div class="digital">
+        <div class="digital-icone">Canal · Instagram · YouTube</div>
+        <h3>A Bolha da IA</h3>
+        <p>O personagem Ifá — inteligência ancestral construída na memória acumulada da humanidade — dialoga com algoritmos, psicopolítica e resistência digital. Paleta preta e dourada, tipografia serifada.</p>
+        <a href="https://instagram.com/abolhadaia" target="_blank">@abolhadaia →</a>
+      </div>
+
+      <div class="digital">
+        <div class="digital-icone">ARG · Minissérie · Instagram</div>
+        <h3>Chronos Corp</h3>
+        <p>Universo de realidade alternativa (ARG) baseado na minissérie O Tecido Invisível do Nada. Site interativo com glitch, transmissões da Dra. Nia Kumani, e o primata cyborg Babel.</p>
+        <a href="https://chronoscorp-inc.github.io" target="_blank">chronoscorp-inc.github.io →</a>
+      </div>
+
+      <div class="digital">
+        <div class="digital-icone">Medium · Ensaios</div>
+        <h3>Matéria Escura do Afeto</h3>
+        <p>Textos em português e inglês sobre afeto, memória, tecnologia e o que os algoritmos não conseguem sincronizar. Publicações regulares no Medium.</p>
+        <a href="https://medium.com/@lucianlourenco" target="_blank">medium.com/@lucianlourenco →</a>
+      </div>
+
+      <div class="digital">
+        <div class="digital-icone">Transmídia · Site interativo</div>
+        <h3>Born to Die — Site</h3>
+        <p>Site interativo do universo Born to Die com codex em JavaScript, paleta de cores dos personagens (azul Gabriel, verde Helena, laranja metálico) e link para playlist no Suno.</p>
+        <a href="https://lucienlourenco-cloud.github.io" target="_blank">lucienlourenco-cloud.github.io →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MEDIUM ─────────────────────────────────────────────────── -->
+<section id="medium">
+  <div class="container">
+    <div class="sec-label">No Medium</div>
+
+    <div class="medium-lista">
+      <div class="medium-item">
+        <div>
+          <div class="medium-idioma">Inglês · Pinado</div>
+          <h3>The Dark Matter of Affection</h3>
+        </div>
+        <a href="https://medium.com/@lucianlourenco/the-dark-matter-of-affection-9b8c9a15b342" target="_blank" class="leia">Ler →</a>
+      </div>
+      <div class="medium-item">
+        <div>
+          <div class="medium-idioma">Português · Pinado</div>
+          <h3>Matéria Escura do Afeto</h3>
+        </div>
+        <a href="https://medium.com/@lucianlourenco/mat%C3%A9ria-escura-do-afeto-64ae2b82eeb5" target="_blank" class="leia">Ler →</a>
+      </div>
+    </div>
+
+    <div class="links-externos">
+      <a href="https://medium.com/@lucianlourenco" target="_blank" class="link-ext">Ver todos no Medium</a>
+      <a href="http://lattes.cnpq.br" target="_blank" class="link-ext">Currículo Lattes</a>
+      <a href="https://wattpad.com" target="_blank" class="link-ext">Wattpad</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CITAÇÃO FOUCAULT ──────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="citacao-bloco">
+      <blockquote>"A tarefa crítica ainda implica a fé no Iluminismo; ela reside sempre no tratamento do equilíbrio entre a análise histórica e a atitude prática."</blockquote>
+      <cite>Michel Foucault — O que são as Luzes?</cite>
+    </div>
+    <div class="citacao-bloco">
+      <blockquote>"Não sou nada. Nunca serei nada. Não posso querer ser nada. À parte isso, tenho em mim todos os sonhos do mundo."</blockquote>
+      <cite>Fernando Pessoa — Tabacaria</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATO ────────────────────────────────────────────────── -->
+<section id="contato">
+  <div class="container">
+    <div class="sec-label">Contato</div>
+    <div class="contato-inner">
+      <div class="contato-texto">
+        <h2>Para assessores, editores e parceiros</h2>
+        <p>Disponível para colaborações acadêmicas, projetos audiovisuais, palestras e consultoria em saúde mental e tecnologia.</p>
+        <a href="mailto:lucienlourenco@gmail.com" class="btn">Enviar mensagem</a>
+      </div>
+      <div class="contato-dados">
+        <div class="contato-item">
+          <span>Localização</span>
+          <span>Fortaleza, Ceará, Brasil</span>
+        </div>
+        <div class="contato-item">
+          <span>Instagram pessoal</span>
+          <span><a href="https://instagram.com/lourencolucian">@lourencolucian</a></span>
+        </div>
+        <div class="contato-item">
+          <span>A Bolha da IA</span>
+          <span><a href="https://instagram.com/abolhadaia">@abolhadaia</a></span>
+        </div>
+        <div class="contato-item">
+          <span>Chronos Corp</span>
+          <span><a href="https://instagram.com/chronoscorp.inc">@chronoscorp.inc</a></span>
+        </div>
+        <div class="contato-item">
+          <span>Medium</span>
+          <span><a href="https://medium.com/@lucianlourenco">@lucianlourenco</a></span>
+        </div>
+        <div class="contato-item">
+          <span>ORCID</span>
+          <span>0000-0001-5154-4882</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RODAPÉ ─────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 Lucian Lourenço — Todos os direitos reservados</p>
+  <p>"No princípio era o Verbo. Depois veio o Código."</p>
+</footer>
+
 </body>
 </html>
