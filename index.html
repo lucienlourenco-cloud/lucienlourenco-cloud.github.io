@@ -4,185 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Born to Die - Universo Transmídia</title>
+    <!-- Importação de Ícones Globais Interativos -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --bg-color: #03080e;
-            --text-color: #a9b7c6;
+            --bg-color: #030a16;
+            --text-color: #b0c4de;
             --accent-blue: #00f0ff;
             --accent-green: #00ff87;
             --accent-red: #ff3344;
-            --card-bg: rgba(7, 18, 30, 0.75);
-            --terminal-glow: 0 0 10px rgba(0, 240, 255, 0.3);
+            --card-bg: rgba(6, 17, 32, 0.85);
+            --terminal-glow: 0 0 15px rgba(0, 240, 255, 0.4);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
             background-color: var(--bg-color);
             background-image: 
-                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
             background-size: 100% 4px, 6px 100%;
             color: var(--text-color);
             line-height: 1.6;
-            padding-bottom: 60px;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #02060c 0%, transparent 100%);
-            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #000 0%, transparent 100%);
+            border-bottom: 2px solid var(--accent-blue);
             box-shadow: var(--terminal-glow);
         }
 
         h1 {
-            color: #fff;
-            font-size: 3rem;
-            letter-spacing: 6px;
+            color: #fff; font-size: 3.2rem; letter-spacing: 8px;
             text-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue);
-            margin-bottom: 10px;
+            margin-bottom: 10px; font-weight: 900;
         }
 
-        .subtitle {
-            color: var(--text-color);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            opacity: 0.8;
+        .subtitle { color: #fff; font-size: 1.1rem; letter-spacing: 2px; opacity: 0.9; }
+
+        .matrix-monitor {
+            background-color: #000; border: 1px dashed var(--accent-green);
+            max-width: 800px; margin: 25px auto 0 auto; padding: 12px;
+            border-radius: 4px; font-size: 0.85rem; color: var(--accent-green);
+            text-shadow: 0 0 5px var(--accent-green); text-align: left; line-height: 1.5;
         }
 
-        .ticker {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: var(--accent-green);
-            text-shadow: 0 0 5px var(--accent-green);
-            text-transform: uppercase;
-        }
+        .container { display: grid; grid-template-columns: 260px 1fr; max-width: 1200px; margin: 40px auto; padding: 0 20px; gap: 30px; }
 
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        nav { background: var(--card-bg); border: 1px solid rgba(0, 240, 255, 0.15); padding: 20px; height: fit-content; border-radius: 4px; position: sticky; top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        nav h4 { color: #fff; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; text-transform: uppercase;}
+        nav a { display: flex; align-items: center; gap: 10px; color: var(--text-color); text-decoration: none; padding: 10px; font-size: 0.85rem; border-radius: 3px; margin-bottom: 5px; transition: 0.2s; }
+        nav a:hover { background: rgba(0, 240, 255, 0.1); color: var(--accent-blue); padding-left: 15px; }
+
+        main { width: 100%; }
 
         section {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(0, 240, 255, 0.1);
-            backdrop-filter: blur(4px);
-            padding: 35px;
-            border-radius: 4px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            position: relative;
+            background-color: var(--card-bg); border: 1px solid rgba(0, 240, 255, 0.12);
+            padding: 35px; border-radius: 4px; margin-bottom: 35px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.8); position: relative;
+            transition: transform 0.3s ease, border 0.3s ease;
         }
+        section:hover { transform: translateY(-2px); border-color: rgba(0, 240, 255, 0.3); }
 
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-        }
-
+        section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; }
         .sec-chronos::before { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
         .sec-cinema::before { background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red); }
         .sec-dados::before { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
         .sec-literatura::before { background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green); }
         .sec-links::before { background: #fff; box-shadow: 0 0 10px #fff; }
 
-        h2 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        h2 { font-size: 1.4rem; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+        .sec-chronos h2 { color: var(--accent-blue); }
+        .sec-cinema h2 { color: var(--accent-red); }
+        .sec-dados h2 { color: var(--accent-blue); }
+        .sec-literatura h2 { color: var(--accent-green); }
+        .sec-links h2 { color: #fff; }
+
+        .quote { font-size: 1.4rem; font-weight: bold; color: #fff; margin-bottom: 25px; line-height: 1.4; border-left: 4px solid var(--accent-red); padding-left: 15px; }
+
+        .action-block { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.5); border-radius: 4px; border: 1px dashed rgba(0, 240, 255, 0.2); }
+        
+        .interactive-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 12px 24px; border-radius: 3px; text-decoration: none; font-weight: bold;
+            font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase;
         }
 
-        .sec-chronos h2 { color: var(--accent-blue); text-shadow: 0 0 5px var(--accent-blue); }
-        .sec-cinema h2 { color: var(--accent-red); text-shadow: 0 0 5px var(--accent-red); }
-        .sec-dados h2 { color: var(--accent-blue); text-shadow: 0 0 5px var(--accent-blue); }
-        .sec-literatura h2 { color: var(--accent-green); text-shadow: 0 0 5px var(--accent-green); }
-        .sec-links h2 { color: #fff; text-shadow: 0 0 5px #fff; }
+        .btn-blue { border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+        .btn-blue:hover { background: var(--accent-blue); color: #000; box-shadow: 0 0 15px var(--accent-blue); }
 
-        .quote {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            border-left: 3px solid var(--accent-red);
-            padding-left: 15px;
-        }
+        .btn-red { border: 1px solid var(--accent-red); color: var(--accent-red); }
+        .btn-red:hover { background: var(--accent-red); color: #000; box-shadow: 0 0 15px var(--accent-red); }
 
-        .project-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed rgba(255,255,255,0.05);
-        }
+        .btn-green { border: 1px solid var(--accent-green); color: var(--accent-green); }
+        .btn-green:hover { background: var(--accent-green); color: #000; box-shadow: 0 0 15px var(--accent-green); }
 
-        .project-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+        .project-card { margin-top: 25px; padding: 20px; background: rgba(0,0,0,0.3); border-left: 2px solid rgba(255,255,255,0.1); border-radius: 2px; }
+        .project-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
 
-        h3 {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
+        footer { text-align: center; padding: 50px 20px; background-color: #000; border-top: 2px solid rgba(0, 240, 255, 0.15); font-size: 0.8rem; letter-spacing: 1px; }
 
-        ul {
-            list-style-type: '➢ ';
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .btn-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            display: block;
-            background-color: rgba(7, 18, 30, 0.9);
-            padding: 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-align: center;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-lattes { border: 1px solid var(--accent-blue); color: var(--accent-blue); }
-        .btn-lattes:hover { background: var(--accent-blue); color: #000; box-shadow: 0 0 15px var(--accent-blue); }
-
-        .btn-medium { border: 1px solid #fff; color: #fff; }
-        .btn-medium:hover { background: #fff; color: #000; box-shadow: 0 0 15px #fff; }
-
-        .btn-yt { border: 1px solid var(--accent-red); color: var(--accent-red); }
-        .btn-yt:hover { background: var(--accent-red); color: #000; box-shadow: 0 0 15px var(--accent-red); }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #02060c;
-            border-top: 1px solid rgba(0, 240, 255, 0.1);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
+        @media(max-width: 768px) { .container { grid-template-columns: 1fr; } nav { position: relative; top: 0; } }
     </style>
 </head>
 <body>
@@ -190,63 +115,56 @@
     <header>
         <h1>BORN TO DIE</h1>
         <p class="subtitle">O Homem Que Estudava Memórias — Universo Transmídia por Lucian Lourenço</p>
-        <div class="ticker">
-            ▲ ANOMALIA: LOOP DETECTADO // SIMULADOR PRIMAL ACESSADO // ARQUIVO KUMANI SOB CONTROLE
+        <div class="matrix-monitor">
+            <i class="fa-solid fa-terminal" style="color: var(--accent-green)"></i> TERMINAL CHRONOS // AMBIENTE GLOBAL // STATUS: ATIVO <br>
+            <i class="fa-solid fa-triangle-exclamation" style="color: var(--accent-red)"></i> ANOMALIA: <span id="anomaly-code">LOOP_0.000003s_DETECTED</span> // ARQUIVO KUMANI ONLINE
         </div>
     </header>
 
-    <main>
-        
-        <!-- SEÇÃO 1: CHRONOS CORP -->
-        <section class="sec-chronos">
-            <h2>⏳ CHRONOS CORP // CONTROLE DE ANOMALIAS</h2>
-            <div class="quote">
-                "A biologia entrega a realidade com minutos de atraso."
-            </div>
-            <p>
-                O ambiente analítico e ficcional da <strong>Chronos Corp</strong> opera na intersecção invisível entre biologia, tempo e simulação de dados. Através de monitoramentos de loops cíclicos, do Arquivo Kumani e do Terminal Sincronizar, o ecossistema investiga os limites do entendimento humano e os lapsos de percepção perante as tecnologias de controle de rede global.
-            </p>
-        </section>
+    <div class="container">
+        <nav>
+            <h4><i class="fa-solid fa-folder-open"></i> DIRETÓRIO</h4>
+            <a href="#chronos"><i class="fa-solid fa-hourglass-half"></i> CHRONOS CORP</a>
+            <a href="#cinema"><i class="fa-solid fa-film"></i> AUDIOVISUAL</a>
+            <a href="#dados"><i class="fa-solid fa-brain"></i> ALGORITMOS</a>
+            <a href="#literatura"><i class="fa-solid fa-book-open"></i> LIVRO & BANDA</a>
+            <a href="#conexoes"><i class="fa-solid fa-network-wired"></i> CONEXÕES REAIS</a>
+        </nav>
 
-        <!-- SEÇÃO 2: AUDIOVISUAL (PROJETO CASULO) -->
-        <section class="sec-cinema">
-            <h2>🎬 Audiovisual & 5 Roteiros Conectados</h2>
-            <p style="font-style: italic; color: #fff; margin-bottom: 15px; border-left: 2px solid var(--accent-red); padding-left: 10px;">
-                "Em um ambiente transmídia onde as realidades se fundem, as cicatrizes do passado são desenterradas através de uma densa narrativa de suspense psicológico."
-            </p>
-            <p>
-                Desenvolvimento estruturado de 5 roteiros interconectados para formatos de longa-metragem e série de ficção. A narrativa reconstrói a jornada de Helena Jamil Turi e o isolamento claustrofóbico no espaço de Gabriel, operando como um thriller dramático urgente com teasers de conceito e pitch de mercado já consolidados.
-            </p>
-        </section>
+        <main>
+            <!-- CHRONOS CORP -->
+            <section id="chronos" class="sec-chronos">
+                <h2><i class="fa-solid fa-hourglass-half"></i> CHRONOS CORP // OPERAÇÃO DE RENEGAÇÃO</h2>
+                <div class="quote">"A biologia entrega a realidade com minutos de atraso."</div>
+                <p>O ambiente analítico e ficcional da <strong>Chronos Corp</strong> opera no limite sutil entre biologia, tempo e sincronização de dados. Através do mapeamento de loops cíclicos, do Arquivo Kumani e do Terminal Sincronizar, o ecossistema investiga o labirinto da percepção humana perante as tecnologias digitais de controle global.</p>
+            </section>
 
-        <!-- SEÇÃO 3: ALGORITMOS E DADOS -->
-        <section class="sec-dados">
-            <h2>🧠 Laboratório de Algoritmos & Memória Negra</h2>
-            <p>
-                Produção ensaística e de pesquisa científica focada na análise crítica de dados, racismo algorítmico e subjetividade decolonial. O ambiente investiga a mecânica das redes e o silenciamento de identidades, estruturando plataformas analíticas e artigos voltados para a preservação e a soberania da memória ancestral.
-            </p>
-        </section>
+            <!-- AUDIOVISUAL -->
+            <section id="cinema" class="sec-cinema">
+                <h2><i class="fa-solid fa-film"></i> Audiovisual & 5 Roteiros Conectados</h2>
+                <p>Desenvolvimento e arquitetura de 5 roteiros interconectados para formatos de longa-metragem e série de ficção dramática. O enredo mergulha no suspense psicológico urgente da reconstrução de Helena Jamil Turi contraposta ao isolamento no Casulo de Gabriel.</p>
+                <div class="action-block">
+                    <a href="https://youtube.com" target="_blank" class="interactive-btn btn-red">
+                        <i class="fa-brands fa-youtube"></i> ACESSAR CLIPES E TEASERS NO YOUTUBE
+                    </a>
+                </div>
+            </section>
 
-        <!-- SEÇÃO 4: ACERVO LITERÁRIO -->
-        <section class="sec-literatura">
-            <h2>📚 Acervo Literário & Outras Obras</h2>
-            
-            <div class="project-item">
-                <h3>• Fio Tênue (Lançamento Agosto 2026)</h3>
-                <p style="color: #8fa0b3; font-size: 0.95rem;">Coletânea física de contos e ensaios sobre fraturas de identidade e territórios urbanos, com rota de lançamento planejada para os polos culturais de Fortaleza (Bruta Flor Arte e Café, BECE e Centro Dragão do Mar) [local] e circulação em capitais nacionais.</p>
-            </div>
+            <!-- ALGORITMOS -->
+            <section id="dados" class="sec-dados">
+                <h2><i class="fa-solid fa-brain"></i> Laboratório de Algoritmos & Memória Negra</h2>
+                <p>Estrutura de pesquisa científica voltada para a análise de dados, desconstrução do racismo algorítmico e afirmação da subjetividade decolonial. O laboratório estuda e desarticula a hemianopsia e as mecânicas de silenciamento digital nas plataformas globais.</p>
+                <div class="action-block">
+                    <a href="https://medium.com" target="_blank" class="interactive-btn btn-blue">
+                        <i class="fa-brands fa-medium"></i> ACESSAR ENSAIOS COMPLETOS NO MEDIUM
+                    </a>
+                </div>
+            </section>
 
-            <div class="project-item">
-                <h3>• Matéria Escura do Afeto & Históricos</h3>
-                <p style="color: #8fa0b3; font-size: 0.95rem;">Investigações filosóficas e publicações que mapeiam o labirinto dos traumas, lutos e afetos humanos, integrando as linhas de pesquisa históricas e o acervo completo do autor.</p>
-            </div>
+            <!-- LITERATURA E MUSICA -->
+            <section id="literatura" class="sec-literatura">
+                <h2><i class="fa-solid fa-book-open"></i> Acervo Literário & Banda SadStink</h2>
+                
+                <div class="project-card">
 
-            <div class="project-item">
-                <h3>• Banda SadStink (Pós-Grunge & Gothic)</h3>
-                <p style="color: #8fa0b3; font-size: 0.95rem;">Colisão visceral entre guitarras distorcidas, arranjos de hip-hop e o vocal soprano de <strong>Luna Kiara</strong>. O projeto musical conta com 06 faixas potentes finalizadas, 03 videoclipes produzidos com sangue, suor e lágrimas, e expansão para formato de Graphic Novel.</p>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 5: CONEXÕES OFICIAIS -->
-        <section class="sec-links">
 
