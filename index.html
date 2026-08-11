@@ -6,154 +6,247 @@
     <title>Born to Die - Universo Transmídia</title>
     <style>
         :root {
-            --bg-color: #0b0c10;
-            --text-color: #c5c6c7;
-            --accent-blue: #45f3ff;
+            --bg-color: #03080e;
+            --text-color: #a9b7c6;
+            --accent-blue: #00f0ff;
             --accent-green: #00ff87;
             --accent-red: #ff3344;
-            --card-bg: #1f2833;
+            --card-bg: rgba(7, 18, 30, 0.75);
+            --terminal-glow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 6px 100%;
             color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            padding-bottom: 60px;
         }
+
         header {
-            background: linear-gradient(135deg, #1f2833, #0b0c10);
-            padding: 40px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--accent-blue);
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #02060c 0%, transparent 100%);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            box-shadow: var(--terminal-glow);
         }
+
         h1 {
-            color: #ffffff;
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
-        }
-        h1 span {
-            color: var(--accent-blue);
-        }
-        .subtitle {
-            font-style: italic;
-            color: #85929E;
-            margin-top: 5px;
-        }
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        section {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        h2 {
-            color: #ffffff;
-            border-bottom: 1px solid #334455;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        .highlight-blue { color: var(--accent-blue); }
-        .highlight-green { color: var(--accent-green); }
-        .highlight-red { color: var(--accent-red); }
-        
-        .logline {
-            font-size: 1.2em;
-            font-style: italic;
-            border-left: 4px solid var(--accent-blue);
-            padding-left: 15px;
-            margin: 20px 0;
-            color: #ffffff;
-        }
-        .track-list {
-            list-style: none;
-            padding: 0;
-        }
-        .track-item {
-            padding: 12px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 4px;
-            margin-bottom: 10px;
-            border-left: 3px solid var(--accent-green);
-        }
-        .badge {
-            background-color: #334455;
             color: #fff;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
+            font-size: 3rem;
+            letter-spacing: 6px;
+            text-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .ticker {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            text-shadow: 0 0 5px var(--accent-green);
             text-transform: uppercase;
         }
-        .tag-arg {
-            background-color: black;
-            color: var(--accent-green);
-            font-family: monospace;
-            padding: 2px 6px;
-            border: 1px solid var(--accent-green);
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 35px;
+            border-radius: 4px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+        }
+
+        .sec-chronos::before { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
+        .sec-cinema::before { background: var(--accent-red); box-shadow: 0 0 10px var(--accent-red); }
+        .sec-dados::before { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
+        .sec-literatura::before { background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green); }
+        .sec-links::before { background: #fff; box-shadow: 0 0 10px #fff; }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .sec-chronos h2 { color: var(--accent-blue); text-shadow: 0 0 5px var(--accent-blue); }
+        .sec-cinema h2 { color: var(--accent-red); text-shadow: 0 0 5px var(--accent-red); }
+        .sec-dados h2 { color: var(--accent-blue); text-shadow: 0 0 5px var(--accent-blue); }
+        .sec-literatura h2 { color: var(--accent-green); text-shadow: 0 0 5px var(--accent-green); }
+        .sec-links h2 { color: #fff; text-shadow: 0 0 5px #fff; }
+
+        .quote {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            border-left: 3px solid var(--accent-red);
+            padding-left: 15px;
+        }
+
+        .project-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style-type: '➢ ';
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: block;
+            background-color: rgba(7, 18, 30, 0.9);
+            padding: 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lattes { border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+        .btn-lattes:hover { background: var(--accent-blue); color: #000; box-shadow: 0 0 15px var(--accent-blue); }
+
+        .btn-medium { border: 1px solid #fff; color: #fff; }
+        .btn-medium:hover { background: #fff; color: #000; box-shadow: 0 0 15px #fff; }
+
+        .btn-yt { border: 1px solid var(--accent-red); color: var(--accent-red); }
+        .btn-yt:hover { background: var(--accent-red); color: #000; box-shadow: 0 0 15px var(--accent-red); }
+
         footer {
             text-align: center;
-            padding: 30px;
-            font-size: 0.9em;
-            color: #667788;
-            border-top: 1px solid #1f2833;
+            padding: 40px 20px;
+            background-color: #02060c;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <header style="text-align: center; padding: 40px 20px; border-bottom: 1px solid var(--card-bg);">
-        <h1 style="color: #fff; font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 10px;">BORN TO DIE</h1>
-        <p style="color: var(--accent-blue); font-size: 1.1rem; font-style: italic;">O Homem Que Estudava Memórias — Universo Transmídia por Lucian Lourenço</p>
+    <header>
+        <h1>BORN TO DIE</h1>
+        <p class="subtitle">O Homem Que Estudava Memórias — Universo Transmídia por Lucian Lourenço</p>
+        <div class="ticker">
+            ▲ ANOMALIA: LOOP DETECTADO // SIMULADOR PRIMAL ACESSADO // ARQUIVO KUMANI SOB CONTROLE
+        </div>
     </header>
 
-    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+    <main>
         
-        <!-- SEÇÃO 1: APRESENTAÇÃO DO UNIVERSO -->
-        <section style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-blue);">
-            <h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">🎬 Universo Transmídia — Projeto Casulo</h2>
-            <p style="font-style: italic; color: #fff; margin-bottom: 15px; border-left: 2px solid var(--accent-green); padding-left: 10px;">
-                "Em um universo transmídia onde as realidades se fundem entre a literatura, o cinema e a música visceral, as cicatrizes do passado e as memórias decoloniais são desenterradas através de uma densa narrativa de suspense e thriller psicológico."
+        <!-- SEÇÃO 1: CHRONOS CORP -->
+        <section class="sec-chronos">
+            <h2>⏳ CHRONOS CORP // CONTROLE DE ANOMALIAS</h2>
+            <div class="quote">
+                "A biologia entrega a realidade com minutos de atraso."
+            </div>
+            <p>
+                O ambiente analítico e ficcional da <strong>Chronos Corp</strong> opera na intersecção invisível entre biologia, tempo e simulação de dados. Através de monitoramentos de loops cíclicos, do Arquivo Kumani e do Terminal Sincronizar, o ecossistema investiga os limites do entendimento humano e os lapsos de percepção perante as tecnologias de controle de rede global.
+            </p>
+        </section>
+
+        <!-- SEÇÃO 2: AUDIOVISUAL (PROJETO CASULO) -->
+        <section class="sec-cinema">
+            <h2>🎬 Audiovisual & 5 Roteiros Conectados</h2>
+            <p style="font-style: italic; color: #fff; margin-bottom: 15px; border-left: 2px solid var(--accent-red); padding-left: 10px;">
+                "Em um ambiente transmídia onde as realidades se fundem, as cicatrizes do passado são desenterradas através de uma densa narrativa de suspense psicológico."
             </p>
             <p>
-                O <em>Btd Universe</em> é um ecossistema maduro, robusto e inteiramente protegido por lei (PI registrada na plataforma Avictoris). O projeto articula-se através de 5 roteiros interconectados de ficção cinematográfica e investigações ensaísticas sobre o racismo algorítmico, a memória negra e a subjetividade. Uma jornada urgente sobre heranças psicológicas, traumas e lutos não bem resolvidos, estruturada para rodadas de negócios do mercado independente.
+                Desenvolvimento estruturado de 5 roteiros interconectados para formatos de longa-metragem e série de ficção. A narrativa reconstrói a jornada de Helena Jamil Turi e o isolamento claustrofóbico no espaço de Gabriel, operando como um thriller dramático urgente com teasers de conceito e pitch de mercado já consolidados.
             </p>
         </section>
 
-        <!-- SEÇÃO 2: LITERATURA & ENSAIOS -->
-        <section style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-green);">
-            <h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">📚 Literatura & Ensaios Literários</h2>
+        <!-- SEÇÃO 3: ALGORITMOS E DADOS -->
+        <section class="sec-dados">
+            <h2>🧠 Laboratório de Algoritmos & Memória Negra</h2>
             <p>
-                Lançamento nacional da obra física <strong>Fio Tênue</strong> neste mês de agosto de 2026. A coletânea de contos e ensaios investiga as fraturas da identidade negra, o tecido urbano e as amarras da ancestralidade no cotidiano. O lançamento inicia-se pelo circuito cultural de Fortaleza (Bruta Flor Arte e Café, BECE e Centro Dragão do Mar de Arte e Cultura), integrando o ambiente analítico do laboratório que estuda a <em>Matéria Escura do Afeto</em>.
+                Produção ensaística e de pesquisa científica focada na análise crítica de dados, racismo algorítmico e subjetividade decolonial. O ambiente investiga a mecânica das redes e o silenciamento de identidades, estruturando plataformas analíticas e artigos voltados para a preservação e a soberania da memória ancestral.
             </p>
         </section>
 
-        <!-- SEÇÃO 3: UNIVERSO MUSICAL SADSTINK -->
-        <section style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-red);">
-            <h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 15px;">🎸 Universo Musical — Banda SadStink</h2>
-            <p style="color: var(--accent-red); font-weight: bold; margin-bottom: 10px;">Concepção lírica, identidade visual e arranjos pós-grunge, gothic e hip-hop.</p>
-            <p style="margin-bottom: 15px;">
-                A banda <strong>SadStink</strong> tensiona as fronteiras dos gêneros musicais ao colidir guitarras pesadas de forte perfil grunge com a magnitude operística do vocal soprano de <strong>Luna Kiara</strong>, sob arranjos contemporâneos desenvolvidos pelo autor em parceria com Luc. O projeto conta com:
-            </p>
-            <ul style="list-style-type: square; padding-left: 20px; margin-bottom: 15px;">
-                <li><strong>06 Faixas Potentes</strong> nacionais e internacionais inteiramente finalizadas.</li>
-                <li><strong>03 Videoclipes Autorais</strong> de alta elaboração conceitual e cinematográfica, gerados com sangue, suor e lágrimas.</li>
-                <li><strong>Universo Visual Expandido:</strong> Estruturação de <em>Graphic Novel</em> voltada ao engajamento de jovens e adultos com foco em contracultura e identidade.</li>
-            </ul>
+        <!-- SEÇÃO 4: ACERVO LITERÁRIO -->
+        <section class="sec-literatura">
+            <h2>📚 Acervo Literário & Outras Obras</h2>
+            
+            <div class="project-item">
+                <h3>• Fio Tênue (Lançamento Agosto 2026)</h3>
+                <p style="color: #8fa0b3; font-size: 0.95rem;">Coletânea física de contos e ensaios sobre fraturas de identidade e territórios urbanos, com rota de lançamento planejada para os polos culturais de Fortaleza (Bruta Flor Arte e Café, BECE e Centro Dragão do Mar) [local] e circulação em capitais nacionais.</p>
+            </div>
+
+            <div class="project-item">
+                <h3>• Matéria Escura do Afeto & Históricos</h3>
+                <p style="color: #8fa0b3; font-size: 0.95rem;">Investigações filosóficas e publicações que mapeiam o labirinto dos traumas, lutos e afetos humanos, integrando as linhas de pesquisa históricas e o acervo completo do autor.</p>
+            </div>
+
+            <div class="project-item">
+                <h3>• Banda SadStink (Pós-Grunge & Gothic)</h3>
+                <p style="color: #8fa0b3; font-size: 0.95rem;">Colisão visceral entre guitarras distorcidas, arranjos de hip-hop e o vocal soprano de <strong>Luna Kiara</strong>. O projeto musical conta com 06 faixas potentes finalizadas, 03 videoclipes produzidos com sangue, suor e lágrimas, e expansão para formato de Graphic Novel.</p>
+            </div>
         </section>
 
-    </main>
+        <!-- SEÇÃO 5: CONEXÕES OFICIAIS -->
+        <section class="sec-links">
 
-    <footer style="text-align: center; padding: 30px 20px; background-color: var(--card-bg); margin-top: 40px; font-size: 0.9rem;">
-        <p style="color: var(--accent-red);">🔒 <em>Aviso de Mercado: Todos os roteiros, ensaios, conceitos de design, fonogramas e o ecossistema narrativo do Btd Universe apresentados neste portfólio são de autoria de Lucian Lourenço e encontram-se assegurados sob proteção de Propriedade Intelectual (PI) na plataforma Avictoris.</em></p>
-    </footer>
-
-</body>
-
-</html>
