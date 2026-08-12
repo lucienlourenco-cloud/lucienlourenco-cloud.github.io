@@ -28,7 +28,7 @@ html{scroll-behavior:smooth}
   --serif:'Cormorant Garamond',Georgia,serif;
   --mono:'Space Mono',monospace;
 }
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.8;overflow-x:hidden}
 
 /* SCAN LINE EFFECT */
 body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,0.015) 2px,rgba(0,212,255,0.015) 4px);pointer-events:none;z-index:1000}
@@ -51,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 3rem;display:fl
 .hero-status{font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:12px}
 .hero-status::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,212,255,0.4)}50%{opacity:0.7;box-shadow:0 0 0 8px rgba(0,212,255,0)}}
-.hero-name{font-family:var(--serif);font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:0.95;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.02em}
+.hero-name{font-family:var(--serif);font-weight:300;font-size:clamp(4.5rem,10vw,9rem);line-height:0.92;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.02em}
 .hero-name span{color:var(--cyan);font-style:italic}
 .hero-sub{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2rem;padding-left:2px}
 .hero-bio{font-size:1.05rem;color:var(--ink2);max-width:540px;line-height:1.9;margin-bottom:3rem;font-family:var(--serif);font-size:1.2rem;font-weight:300}
@@ -76,7 +76,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 3rem;display:fl
 section{padding:7rem 3rem}
 .section-eyebrow{font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:12px}
 .section-eyebrow::before{content:'//';color:var(--red)}
-h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.01em}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,5vw,3.8rem);color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.01em}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);margin:1rem 0 3rem;opacity:0.3}
 
 /* UNIVERSO BTD */
@@ -98,8 +98,8 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color
 .card-tag.cyan{color:var(--cyan)}
 .card-tag.red{color:var(--red)}
 .card-tag.gold{color:var(--gold)}
-.card-title{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:0.8rem;line-height:1.2}
-.card-desc{font-size:0.9rem;color:var(--ink2);line-height:1.8;margin-bottom:1.5rem}
+.card-title{font-family:var(--serif);font-size:1.9rem;color:var(--ink);margin-bottom:0.8rem;line-height:1.2}
+.card-desc{font-size:1rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem}
 .card-link{font-family:var(--mono);font-size:9px;color:var(--cyan);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(0,212,255,0.3);transition:all 0.2s}
 .card-link:hover{color:var(--ink);border-color:var(--ink)}
 
@@ -125,8 +125,8 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color
 .pub-card:hover::after{transform:scaleX(1)}
 .pub-tipo{font-family:var(--mono);font-size:9px;color:var(--cyan);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem}
 .pub-tipo.red{color:var(--red)}
-.pub-titulo{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2}
-.pub-info{font-size:0.88rem;color:var(--ink2);line-height:1.7;margin-bottom:1.2rem}
+.pub-titulo{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2}
+.pub-info{font-size:0.95rem;color:var(--ink2);line-height:1.8;margin-bottom:1.2rem}
 .pub-status{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase}
 .s-ok{color:#00ff88}
 .s-prelo{color:var(--gold)}
@@ -139,8 +139,8 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color
 .artigo{border-bottom:1px solid rgba(0,212,255,0.08);padding:2rem 0;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:padding-left 0.25s}
 .artigo:hover{padding-left:1rem}
 .artigo-ano{font-family:var(--mono);font-size:9px;color:var(--cyan);letter-spacing:0.1em;margin-bottom:0.4rem}
-.artigo-titulo{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:0.3rem}
-.artigo-info{font-family:var(--mono);font-size:9px;color:var(--ink3)}
+.artigo-titulo{font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:0.3rem}
+.artigo-info{font-family:var(--mono);font-size:11px;color:var(--ink3)}
 .badge{font-family:var(--mono);font-size:9px;border:1px solid;padding:4px 12px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
 .badge.cyan{color:var(--cyan);border-color:rgba(0,212,255,0.3)}
 .badge.red{color:var(--red);border-color:rgba(255,45,74,0.3)}
@@ -209,10 +209,11 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
       linhas que se cruzam onde os algoritmos não chegam.<br>
       <em style="color:var(--ink2)">Algo que nenhuma máquina sincroniza.</em>
     </p>
+<style>.hero-bio{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--ink2);max-width:600px;line-height:1.9;margin-bottom:3rem}</style>
     <div class="hero-ctas">
       <a href="#universo" class="btn btn-cyan">Universo BTD</a>
       <a href="https://caravanagrupoeditorial.com/livros/o-fio-tenue/" target="_blank" class="btn btn-red">O Fio Tênue</a>
-      <a href="#pesquisa" class="btn btn-outline">Pesquisa Acadêmica</a>
+      <a href="#pesquisa" class="btn" style="background:transparent;color:#00ff88;border-color:#00ff88;font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:0.9rem 2rem">Pesquisa</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">3</div><div class="stat-label">Universos Conectados</div></div>
@@ -229,23 +230,55 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
   <h2>BTD — Breaking Through Digital</h2>
   <div class="divider"></div>
 
+  <div style="border:1px solid rgba(0,212,255,0.25);padding:2.5rem;margin-bottom:3rem;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--red),var(--gold))"></div>
+    <p style="font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--ink);line-height:1.9;font-style:italic">
+      <em style="color:var(--cyan)">Born to Die</em>, <em style="color:var(--red)">O Tecido Invisível do Nada</em> e <em style="color:var(--gold)">Zeus-Mor</em> são os pilares narrativos audiovisuais — mas o universo BTD é muito maior. Música, literatura, pesquisa acadêmica, estudos científicos, HQ, games e linguagem digital compõem um ecossistema transmídia em expansão contínua, onde cada obra alimenta e é alimentada pelas outras.
+    </p>
+  </div>
+
   <div class="btd-hero">
     <p class="btd-title">Born to Die · O Tecido Invisível do Nada · Zeus-Mor</p>
-    <p class="btd-sub">Universo compartilhado · Patenteado no Navoctoris · Letras · Roteiros · HQ · Anime · Games</p>
+    <p class="btd-sub">Universo compartilhado · Propriedade Intelectual Registrada · Letras · Roteiros · HQ · Anime · Games</p>
     <p class="btd-desc">Três universos interconectados que exploram memória, tecnologia, colonialidade e subjetividade. Trilha original pela <strong style="color:var(--cyan)">The Sad Skin Band</strong>. Narrativa transmídia em expansão contínua.</p>
+  </div>
+
+  <div style="margin-bottom:3rem">
+    <div class="section-eyebrow" style="margin-bottom:1rem">Trilha Original · The Sad Skin Band</div>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid rgba(0,212,255,0.2)">
+      <iframe 
+        src="https://www.youtube.com/embed/Wy24MO33fvE?autoplay=0&rel=0&color=white" 
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        title="Just Gone — The Sad Skin Band">
+      </iframe>
+    </div>
+    <p style="font-family:var(--mono);font-size:10px;color:var(--ink3);margin-top:0.8rem;letter-spacing:0.1em">JUST GONE · The Sad Skin Band · Trilha original do universo BTD</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+      <a href="https://www.youtube.com/watch?v=g_iRaCtYeYM" target="_blank" class="card-link">Museu de Mentiras ↗</a>
+      <a href="https://www.youtube.com/watch?v=VOT4iOEzUUU" target="_blank" class="card-link">Faixa 3 ↗</a>
+      <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="card-link">Ver todas no canal BTD ↗</a>
+    </div>
   </div>
 
   <div class="universo-grid">
     <div class="universo-card cyan">
-      <div class="card-tag cyan">// Longa-metragem · Série</div>
+      <div class="card-tag cyan">// Longa-metragem · Série · Thriller Psicológico</div>
       <div class="card-title">Born to Die</div>
-      <p class="card-desc">Gabriel, neuropsicólogo na casa dos 40 com diagnóstico terminal. Helena, sobrevivente de 23 anos com passado difícil. Memória, testemunho, escrita como resistência ao desaparecimento. Trilha com mais de 60 faixas — óperas, jazz, blues, rock.</p>
-      <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="card-link">YouTube BTD ↗</a>
+      <p class="card-desc">Um neuropsicólogo especializado em memória recebe um diagnóstico terminal e conhece Helena, uma mulher marcada por perdas, violência e dependência. A história explora memória, luto, permanência e amor. Thriller psicológico, drama, romance. Trilha original com 60+ faixas — <em style="color:var(--cyan)">The Sad Skin Band</em>.</p>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+        <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="card-link" style="display:flex;align-items:center;gap:6px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.8 2 12 2 12 2s-4.8 0-7.3.2c-.6.1-1.9.1-3 1.3C.8 4.2.5 6.2.5 6.2S.2 8.5.2 10.8v2.1c0 2.3.3 4.6.3 4.6s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7 21.7 12 21.8 12 21.8s4.8 0 7.3-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.3.3-4.6v-2.1c0-2.3-.3-4.6-.3-4.6zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>
+          Canal BTD ↗
+        </a>
+        <a href="https://www.instagram.com/btddigital.universe/" target="_blank" class="card-link">Instagram ↗</a>
+      </div>
     </div>
     <div class="universo-card red">
-      <div class="card-tag red">// Série Limitada</div>
-      <div class="card-title">Chronos Corp<br><small style="font-size:0.7em;color:var(--ink3)">O Tecido Invisível do Nada</small></div>
-      <p class="card-desc">Dra. Nia Kumani, neurocientista negra com Alzheimer precoce. Babel, primata ciborgue e Sujeito Zero. Um laboratório secreto chamado Alkebulan. Ficção científica sobre tempo, memória e resistência.</p>
+      <div class="card-tag red">// Série Limitada · BTD Universe</div>
+      <div class="card-title">O Tecido Invisível do Nada</div>
+      <p class="card-desc">Uma neurocientista com Alzheimer precoce descobre que uma grande corporação que prometeu salvar sua memória usa um método de controle neural para escravizar bilhões de pessoas em um loop de atenção digital. Para libertar o mundo, ela precisa abraçar o próprio esquecimento.</p>
       <a href="https://chronoscorp-inc.github.io/" target="_blank" class="card-link">Acessar site ↗</a>
     </div>
     <div class="universo-card gold">
@@ -253,6 +286,17 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
       <div class="card-title">Zeus-Mor</div>
       <p class="card-desc">Um padre cria uma IA a partir das bases emocionais e intelectuais de uma jornalista e um arquiteto nigeriano. À medida que a IA evolui, as fronteiras entre criação e criador desaparecem. Fé, consciência e o que nos torna humanos.</p>
       <a href="#obras" class="card-link">Ver projeto ↗</a>
+    </div>
+  </div>
+
+  <!-- JUMP LINKS -->
+  <div style="margin-top:4rem;padding:3rem 2rem;border:1px solid rgba(0,212,255,0.15);text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--red),var(--gold))"></div>
+    <p style="font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:2rem">// Próxima etapa — entre nos universos</p>
+    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="btn btn-cyan">Born to Die ↗</a>
+      <a href="https://www.instagram.com/btddigital.universe/" target="_blank" class="btn btn-red">Universo BTD ↗</a>
+      <a href="https://www.instagram.com/sadstinkband/" target="_blank" class="btn" style="background:transparent;color:var(--gold);border-color:var(--gold);font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:0.9rem 2rem">The Sad Skin Band ↗</a>
     </div>
   </div>
 
@@ -289,14 +333,14 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
       <span class="link-title">BTD Digital Universe</span>
       <span class="link-handle">@btddigital.universe</span>
     </a>
-    <a href="https://www.instagram.com/chronoscorp.inc/" target="_blank" class="link-card">
-      <span class="link-platform">Instagram</span>
-      <span class="link-title">Chronos Corp</span>
-      <span class="link-handle">@chronoscorp.inc</span>
+    <a href="https://chronoscorp-inc.github.io/" target="_blank" class="link-card">
+      <span class="link-platform">Site · Universo BTD</span>
+      <span class="link-title">O Tecido Invisível do Nada</span>
+      <span class="link-handle">chronoscorp-inc.github.io</span>
     </a>
     <a href="https://medium.com/@lucianlourenco" target="_blank" class="link-card red-card">
       <span class="link-platform">Medium</span>
-      <span class="link-title">Matéria Escura do Afeto</span>
+      <span class="link-title">Lucian Lourenço</span>
       <span class="link-handle" style="color:var(--red)">@lucianlourenco</span>
     </a>
   </div>
@@ -330,16 +374,9 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
     </div>
 
     <div class="pub-card">
-      <div class="pub-tipo red">Novela · No prelo</div>
-      <div class="pub-titulo">Nascemos para Morrer</div>
-      <p class="pub-info">Gabriel Drummond é neuropsicólogo. Sabe o mapa completo do luto. Trinta e seis dias após a morte da mãe, recebe o próprio diagnóstico de câncer. Conhecer o mapa não adianta nada quando você é o território.</p>
-      <div style="margin-top:1rem"><span class="pub-status s-prelo">No prelo</span></div>
-    </div>
-
-    <div class="pub-card">
       <div class="pub-tipo">Romance · Em revisão</div>
       <div class="pub-titulo">O Inventário das Ruínas Vivas</div>
-      <p class="pub-info">Um professor cataloga os escombros da própria vida às três da manhã — o luto pelo pai, a perseguição institucional, o amor que bloqueou sem despedida. Uma arqueologia da ruína como sobrevivência. Em adaptação para roteiro.</p>
+      <p class="pub-info">Um professor sofrendo de uma rara doença, entre lutas e perdas, faz um inventário da própria existência e da humanidade para salvá-la de uma tragédia. Em adaptação para roteiro.</p>
       <div style="margin-top:1rem"><span class="pub-status s-ativo">Em revisão · Adaptação audiovisual</span></div>
     </div>
 
@@ -378,7 +415,7 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
     <div class="artigo">
       <div>
         <div class="artigo-ano">Série Limitada · BTD Universe</div>
-        <div class="artigo-titulo">Chronos Corp — O Tecido Invisível do Nada</div>
+        <div class="artigo-titulo">O Tecido Invisível do Nada</div>
         <div class="artigo-info">Ficção científica · Memória · Raça · Tecnologia</div>
       </div>
       <span class="badge red">Ativo</span>
@@ -409,9 +446,9 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
     </div>
     <div class="artigo">
       <div>
-        <div class="artigo-ano">Série limitada · Selecionada FRAPA</div>
+        <div class="artigo-ano">Curta-metragem · Selecionada FRAPA</div>
         <div class="artigo-titulo">A Tríade</div>
-        <div class="artigo-info">Em adaptação para longa ou série limitada · FSA · Globoplay · TV Brasil</div>
+        <div class="artigo-info">Roteiro concluído · Apresentado no FRAPA · Em adaptação para longa ou série limitada · FSA · Globoplay · TV Brasil</div>
       </div>
       <span class="badge green">Selecionada FRAPA</span>
     </div>
@@ -420,11 +457,11 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
 
 <!-- PESQUISA -->
 <section id="pesquisa" style="background:var(--bg2)">
-  <div class="section-eyebrow">Academia & Gestão em Saúde</div>
-  <h2>Pesquisa</h2>
-  <div class="divider"></div>
+  <div class="section-eyebrow" style="color:#00ff88">Academia & Gestão em Saúde</div>
+  <h2 style="color:#00ff88">Pesquisa</h2>
+  <div class="divider" style="background:linear-gradient(90deg,#00ff88,transparent)"></div>
 
-  <p style="color:var(--ink2);max-width:680px;line-height:1.9;margin-bottom:3rem;font-family:var(--serif);font-size:1.1rem;font-weight:300">Servidor público da SMS Fortaleza. Professor universitário na Extensão Curricular do Curso de Medicina da UniChristus (S4). Mestre em Psicologia pela UFC. Linha de pesquisa: <strong style="color:var(--cyan);font-weight:400">Corpos Vulneráveis, Instituições e Ética do Cuidado</strong>.</p>
+  <p style="color:var(--ink2);max-width:680px;line-height:1.9;margin-bottom:3rem;font-family:var(--serif);font-size:1.1rem;font-weight:300">Servidor público da SMS Fortaleza. Professor universitário na Extensão Curricular do Curso de Medicina da UniChristus (S4). Mestre em Psicologia pela UFC. Linha de pesquisa: <strong style="color:#00ff88;font-weight:400">Corpos Vulneráveis, Instituições e Ética do Cuidado</strong>.</p>
 
   <div class="artigos-list">
     <div class="artigo">
@@ -569,6 +606,7 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
     <div class="divider"></div>
     <p style="color:var(--ink2);max-width:480px;line-height:1.85">Para parcerias editoriais, co-produções audiovisuais, colaborações acadêmicas ou o universo BTD.</p>
     <a href="mailto:lucienlourenco@gmail.com" class="contato-email">lucienlourenco@gmail.com</a>
+    <a href="mailto:btd.digitaluniverse@gmail.com" class="contato-email" style="font-size:1.3rem;color:var(--red)">btd.digitaluniverse@gmail.com</a>
     <div class="contato-links">
       <a href="https://www.instagram.com/lucianlourencol/" target="_blank" class="contato-link">Instagram</a>
       <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do" target="_blank" class="contato-link">Lattes</a>
@@ -576,7 +614,6 @@ footer{padding:2rem 3rem;border-top:1px solid rgba(0,212,255,0.1);display:flex;j
       <a href="https://medium.com/@lucianlourenco" target="_blank" class="contato-link">Medium</a>
       <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="contato-link">YouTube</a>
       <a href="https://www.tiktok.com/@lucianlourencol" target="_blank" class="contato-link">TikTok</a>
-      <a href="https://chronoscorp-inc.github.io/" target="_blank" class="contato-link">Chronos Corp</a>
       <a href="https://www.amazon.com.br/s?i=stripbooks&rh=p_27%3ALucien%2BLouren%25C3%25A7o&s=relevancerank&text=Lucien+Louren%C3%A7o&ref=dp_byline_sr_book_1" target="_blank" class="contato-link">Amazon</a>
       <a href="https://clubedeautores.com.br/books/search?where=books-search&what=lucien+lourenco" target="_blank" class="contato-link">Clube de Autores</a>
     </div>
