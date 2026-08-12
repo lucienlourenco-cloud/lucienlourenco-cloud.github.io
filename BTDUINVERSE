@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BTD — Breaking Through Digital. Universo transmídia de Lucian Lourenço.">
+<title>BTD — Breaking Through Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#03030a;
+  --bg2:#07070f;
+  --bg3:#0c0c18;
+  --ink:#eeeaf8;
+  --ink2:#9b97b8;
+  --ink3:#5a5878;
+  --cyan:#00d4ff;
+  --pink:#ff2d8a;
+  --purple:#9b4dff;
+  --blue:#2d6aff;
+  --green:#00ff88;
+  --red:#ff3030;
+  --gold:#ffd166;
+  --sans:'Rajdhani',sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'Space Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,212,255,0.008) 3px,rgba(0,212,255,0.008) 4px);pointer-events:none;z-index:998}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(3,3,10,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(155,77,255,0.12)}
+.nav-logo{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);text-decoration:none}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-family:var(--mono);font-size:10px;color:var(--ink3);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--cyan)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem;position:relative;overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(155,77,255,0.15) 0%,transparent 60%),
+  radial-gradient(ellipse 40% 40% at 0% 100%,rgba(0,212,255,0.08) 0%,transparent 50%),
+  radial-gradient(ellipse 40% 40% at 100% 100%,rgba(255,45,138,0.08) 0%,transparent 50%);
+  pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(155,77,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(155,77,255,0.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.hero-logo{width:150px;height:150px;object-fit:contain;margin:0 auto 2.5rem;display:block;filter:drop-shadow(0 0 40px rgba(155,77,255,0.7)) drop-shadow(0 0 80px rgba(0,212,255,0.3))}
+.hero-eyebrow{font-family:var(--mono);font-size:10px;color:var(--purple);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--purple)}
+.hero-title{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,9vw,8rem);line-height:0.92;color:var(--ink);letter-spacing:-0.02em;margin-bottom:1rem}
+.hero-title em{font-style:italic;background:linear-gradient(135deg,var(--cyan) 0%,var(--purple) 50%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:2rem}
+.hero-desc{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--ink2);max-width:680px;margin:0 auto 3rem;line-height:1.9}
+.hero-frentes{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.frente-tag{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:0.5rem 1.2rem;border:1px solid}
+.frente-tag.mus{color:var(--pink);border-color:rgba(255,45,138,0.3)}
+.frente-tag.lit{color:var(--gold);border-color:rgba(255,209,102,0.3)}
+.frente-tag.av{color:var(--cyan);border-color:rgba(0,212,255,0.3)}
+.frente-tag.pes{color:var(--green);border-color:rgba(0,255,136,0.3)}
+.frente-tag.hq{color:var(--purple);border-color:rgba(155,77,255,0.3)}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn{font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:1rem 2.5rem;border:1px solid;transition:all 0.3s;display:inline-block;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;transform:translateX(-100%);transition:transform 0.3s}
+.btn:hover::before{transform:translateX(0)}
+.btn-cyan{color:var(--cyan);border-color:var(--cyan)}.btn-cyan::before{background:var(--cyan)}.btn-cyan:hover{color:var(--bg)}
+.btn-pink{color:var(--pink);border-color:var(--pink)}.btn-pink::before{background:var(--pink)}.btn-pink:hover{color:var(--ink)}
+.btn-gold{color:var(--gold);border-color:var(--gold)}.btn-gold::before{background:var(--gold)}.btn-gold:hover{color:var(--bg)}
+.hero-pi{font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.15em;text-transform:uppercase;padding:0.5rem 1.2rem;border:1px solid rgba(255,255,255,0.06);display:inline-block}
+
+/* SECTIONS */
+section{padding:7rem 4rem}
+.s-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.s-eyebrow::before{content:'//';color:var(--pink)}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,5vw,4rem);line-height:1;letter-spacing:-0.01em;margin-bottom:0.5rem}
+.divider{height:1px;margin:1rem 0 3rem;opacity:0.25}
+
+/* UNIVERSO — EIXOS */
+.eixos-bg{background:var(--bg2)}
+.eixos-intro{font-family:var(--serif);font-size:1.2rem;font-weight:300;color:var(--ink2);max-width:720px;line-height:1.9;margin-bottom:4rem;border-left:3px solid var(--purple);padding-left:2rem}
+.eixos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(155,77,255,0.12);margin-bottom:4rem}
+.eixo{background:var(--bg2);padding:2.5rem 1.8rem;transition:background 0.3s;position:relative;overflow:hidden}
+.eixo::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.eixo:hover{background:var(--bg3)}
+.eixo:hover::before{transform:scaleX(1)}
+.eixo.mus::before{background:var(--pink)}
+.eixo.lit::before{background:var(--gold)}
+.eixo.av::before{background:var(--cyan)}
+.eixo.pes::before{background:var(--green)}
+.eixo.hq::before{background:var(--purple)}
+.eixo-icon{font-size:1.5rem;margin-bottom:1rem}
+.eixo-titulo{font-family:var(--sans);font-size:1rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.8rem}
+.eixo.mus .eixo-titulo{color:var(--pink)}
+.eixo.lit .eixo-titulo{color:var(--gold)}
+.eixo.av .eixo-titulo{color:var(--cyan)}
+.eixo.pes .eixo-titulo{color:var(--green)}
+.eixo.hq .eixo-titulo{color:var(--purple)}
+.eixo-desc{font-size:0.88rem;color:var(--ink2);line-height:1.75}
+
+/* PROJETOS AUDIOVISUAIS */
+.av-bg{background:var(--bg)}
+.av-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,212,255,0.1)}
+.av-card{background:var(--bg);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
+.av-card:hover{background:var(--bg2)}
+.av-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.av-card.btd::before{background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.av-card.tec::before{background:linear-gradient(90deg,var(--red),var(--pink))}
+.av-card.zeus::before{background:linear-gradient(90deg,var(--gold),var(--purple))}
+.av-card:hover::before{transform:scaleX(1)}
+.av-num{font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.15em;margin-bottom:1.5rem}
+.av-titulo{font-family:var(--serif);font-size:2rem;line-height:1.1;margin-bottom:0.4rem}
+.av-titulo.cyan{color:var(--cyan)}
+.av-titulo.red{color:var(--red)}
+.av-titulo.gold{color:var(--gold)}
+.av-formato{font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem}
+.av-desc{font-size:0.95rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem}
+.av-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+.av-tag{font-family:var(--mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border:1px solid rgba(255,255,255,0.08);color:var(--ink3)}
+.av-link{font-family:var(--mono);font-size:9px;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid;transition:all 0.2s}
+.av-link.cyan{color:var(--cyan);border-color:rgba(0,212,255,0.3)}
+.av-link.red{color:var(--red);border-color:rgba(255,48,48,0.3)}
+
+/* TRILHA */
+.trilha-bg{background:var(--bg2)}
+.trilha-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.trilha-info{}
+.trilha-desc{font-family:var(--serif);font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.9;margin-bottom:2rem}
+.trilha-musicas{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem}
+.musica-link{font-family:var(--mono);font-size:10px;color:var(--pink);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,45,138,0.2);padding-bottom:0.3rem;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.musica-link::before{content:'▶';font-size:8px}
+.musica-link:hover{color:var(--cyan);border-color:rgba(0,212,255,0.3)}
+.trilha-player{border:1px solid rgba(255,45,138,0.2);position:relative}
+.trilha-player iframe{display:block;width:100%;height:220px;border:0}
+
+/* LITERATURA */
+.lit-bg{background:var(--bg)}
+.lit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.lit-card{border:1px solid rgba(255,209,102,0.1);padding:2.5rem;position:relative;overflow:hidden;transition:border-color 0.3s}
+.lit-card:hover{border-color:rgba(255,209,102,0.3)}
+.lit-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.lit-card:hover::after{transform:scaleX(1)}
+.lit-tipo{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem}
+.lit-titulo{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.2}
+.lit-desc{font-size:0.92rem;color:var(--ink2);line-height:1.8;margin-bottom:1rem}
+.lit-status{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase}
+.s-ok{color:var(--green)}.s-prelo{color:var(--gold)}.s-ativo{color:var(--cyan)}
+.lit-link{font-family:var(--mono);font-size:9px;color:var(--gold);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,209,102,0.3)}
+
+/* PERSONAGENS BTD */
+.chars-bg{background:var(--bg2)}
+.chars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.char-card{border:1px solid rgba(255,255,255,0.06);padding:2.5rem 2rem;position:relative;overflow:hidden}
+.char-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.char-card:hover::after{transform:scaleX(1)}
+.char-gabriel::after{background:var(--blue)}
+.char-helena::after{background:var(--green)}
+.char-romualdo::after{background:var(--red)}
+.char-nome{font-family:var(--serif);font-size:2.2rem;font-weight:300;margin-bottom:0.3rem}
+.char-nome.blue{color:var(--blue)}
+.char-nome.green{color:var(--green)}
+.char-nome.red{color:var(--red)}
+.char-idade{font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.15em;margin-bottom:1rem}
+.char-arquetipo{font-family:var(--mono);font-size:10px;color:var(--ink2);margin-bottom:1.2rem;padding:0.5rem 0.8rem;background:rgba(255,255,255,0.03);border-left:2px solid}
+.char-gabriel .char-arquetipo{border-color:var(--blue)}
+.char-helena .char-arquetipo{border-color:var(--green)}
+.char-romualdo .char-arquetipo{border-color:var(--red)}
+.char-desc{font-size:0.9rem;color:var(--ink2);line-height:1.8}
+
+/* MERCADO */
+.mercado-bg{background:var(--bg)}
+.mercado-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,212,255,0.08);margin:2rem 0 3rem}
+.mercado-item{background:var(--bg);padding:2rem 1.5rem}
+.mercado-label{font-family:var(--mono);font-size:8px;color:var(--ink3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem}
+.mercado-value{font-family:var(--serif);font-size:1.05rem;color:var(--cyan)}
+.mercado-quote{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--gold);border-left:3px solid var(--gold);padding-left:2rem;line-height:1.7;max-width:700px}
+
+/* CONTATO */
+.contato-bg{background:var(--bg2)}
+.contato-inner{max-width:640px;margin:0 auto;text-align:center}
+.contato-emails{display:flex;flex-direction:column;gap:0.5rem;margin:2.5rem 0}
+.contato-email{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--cyan);text-decoration:none;transition:color 0.2s}
+.contato-email:hover{color:var(--pink)}
+.contato-email.btd{color:var(--pink)}
+.contato-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.contato-link{font-family:var(--mono);font-size:10px;color:var(--ink3);text-decoration:none;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:6px}
+.contato-link::before{content:'↗';color:var(--cyan)}
+.contato-link:hover{color:var(--cyan)}
+
+/* FOOTER */
+footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-text{font-family:var(--mono);font-size:9px;color:var(--ink3);letter-spacing:0.1em}
+.footer-text span{color:var(--purple)}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(3,3,10,0.98);padding:2rem;gap:1.5rem;border-bottom:1px solid rgba(155,77,255,0.1)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  section{padding:5rem 1.5rem}
+  .hero{padding:7rem 1.5rem 4rem}
+  .eixos-grid{grid-template-columns:repeat(2,1fr)}
+  .av-grid{grid-template-columns:1fr}
+  .trilha-grid{grid-template-columns:1fr}
+  .lit-grid{grid-template-columns:1fr}
+  .chars-grid{grid-template-columns:1fr}
+  .mercado-grid{grid-template-columns:repeat(2,1fr)}
+  footer{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#topo" class="nav-logo">BTD Universe</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#universo">Universo</a>
+    <a href="#audiovisual">Audiovisual</a>
+    <a href="#trilha">Trilha</a>
+    <a href="#literatura">Literatura</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <img src="btdlogo.png" alt="BTD Logo" class="hero-logo">
+    <div class="hero-eyebrow">Universo Transmídia</div>
+    <h1 class="hero-title">Breaking<br><em>Through Digital</em></h1>
+    <p class="hero-sub">Propriedade Intelectual Registrada · Navoctoris · Lucian Lourenço</p>
+    <p class="hero-desc">Um ecossistema narrativo onde música, literatura, audiovisual, pesquisa científica, HQ e games se encontram numa única visão criativa. Cada obra alimenta e é alimentada pelas outras.</p>
+    <div class="hero-frentes">
+      <span class="frente-tag mus">Música</span>
+      <span class="frente-tag lit">Literatura</span>
+      <span class="frente-tag av">Audiovisual</span>
+      <span class="frente-tag pes">Pesquisa</span>
+      <span class="frente-tag hq">HQ · Games</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#universo" class="btn btn-cyan">Explorar Universo</a>
+      <a href="#audiovisual" class="btn btn-pink">Projetos</a>
+      <a href="#contato" class="btn btn-gold">Pitch & Contato</a>
+    </div>
+    <div class="hero-pi">© 2024–2026 Lucian Lourenço · PI Registrada · Navoctoris · Todos os direitos reservados</div>
+  </div>
+</section>
+
+<!-- UNIVERSO — EIXOS -->
+<section id="universo" class="eixos-bg">
+  <div class="s-eyebrow" style="color:var(--purple)">Ecossistema Criativo</div>
+  <h2 style="color:var(--purple)">O Universo BTD</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--purple),transparent)"></div>
+  <p class="eixos-intro">
+    BTD não foi planejado. Foi convocado.<br><br>
+    De um aparente simples conto, nascido do luto e das perdas, surgiu <em>Born to Die</em>. E de Born to Die, como mundos que brotam de mundos, nasceu este universo.<br><br>
+    Não há CEO aqui. Há um griô. Um artesão. Um demiurgo cujas conexões atravessam toda a sua trajetória — a ancestralidade, a memória, a dor transformada em narrativa.<br><br>
+    O BTD cresceu de forma inevitável. Suas raízes estão em cada texto, cada perda, cada descoberta. E agora se expande como algo novo, atravessador, potente e único — um universo transmídia onde cada linguagem é um fio do mesmo tecido invisível.
+  </p>
+  <p class="eixos-intro" style="border-left-color:var(--cyan);margin-top:-2rem">
+    <em>Born to Die</em>, <em>O Tecido Invisível do Nada</em> e <em>Zeus-Mor</em> são os pilares audiovisuais — mas o universo se expande por música original, literatura, pesquisa acadêmica, HQ, games e linguagem digital. Cada linguagem é uma entrada para o mesmo mundo.
+  </p>
+  <p class="eixos-intro" style="border-left-color:var(--pink);margin-top:-2rem">
+    As conexões do universo BTD não foram planejadas — foram descobertas. Os roteiros carregam no seu DNA conceitos de neurociência, psicologia social e simbologias que emergem de anos de pesquisa acadêmica. Não como ilustração — como substância. A memória que um personagem perde é a mesma que os estudos científicos tentam mapear. O luto que move uma narrativa é o mesmo que a psicologia social nomeia. A dor que vira música é a mesma que o ensaio acadêmico analisa.<br><br>
+    Este universo é disruptivo porque não separa o que nunca deveria ter sido separado: arte, ciência e experiência vivida. É simbiótico porque cada linguagem alimenta as outras. E é único porque nasceu assim — não como projeto, mas como existência. Uma obra que se fez muito antes de ter nome.
+  </p>
+  <div class="eixos-grid">
+    <div class="eixo mus">
+      <div class="eixo-icon">🎵</div>
+      <div class="eixo-titulo">Música</div>
+      <p class="eixo-desc">Sad Stink. 60+ faixas originais. Trilha diegética do universo — rock, jazz, blues, pop. Just Gone · Museu de Mentiras · e mais.</p>
+    </div>
+    <div class="eixo lit">
+      <div class="eixo-icon">📖</div>
+      <div class="eixo-titulo">Literatura</div>
+      <p class="eixo-desc">O Fio Tênue (publicado), O Inventário das Ruínas Vivas (em revisão), Entre Algoritmos e Colonialidade (em construção). Escrita como resistência.</p>
+    </div>
+    <div class="eixo av">
+      <div class="eixo-icon">🎬</div>
+      <div class="eixo-titulo">Audiovisual</div>
+      <p class="eixo-desc">Três universos interconectados: Born to Die, O Tecido Invisível do Nada e Zeus-Mor. Drama, ficção científica e thriller psicológico.</p>
+    </div>
+    <div class="eixo pes">
+      <div class="eixo-icon">🔬</div>
+      <div class="eixo-titulo">Pesquisa</div>
+      <p class="eixo-desc">Subjetividades negras, algoritmos, memória e colonialidade. Artigos em periódicos nacionais e internacionais. A academia como linguagem criativa.</p>
+    </div>
+    <div class="eixo hq">
+      <div class="eixo-icon">🎮</div>
+      <div class="eixo-titulo">HQ · Games · ARG</div>
+      <p class="eixo-desc">Expansão do universo em quadrinhos, games e narrativas de realidade alternada (ARG). Cada plataforma é uma nova camada do mesmo mundo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIOVISUAL -->
+<section id="audiovisual" class="av-bg">
+  <div class="s-eyebrow" style="color:var(--cyan)">Projetos Audiovisuais</div>
+  <h2>Três Universos</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--cyan),transparent)"></div>
+  <div class="av-grid">
+    <div class="av-card btd">
+      <div class="av-num">01 · DRAMA PSICOLÓGICO · ROMANCE TRÁGICO</div>
+      <div class="av-titulo cyan">Born to Die</div>
+      <div class="av-formato">Conto → Curta-metragem → Longa ou Minissérie 5 ep. · Pitch ativo</div>
+      <p class="av-desc">Tudo começou como conto. Depois virou roteiro de curta-metragem — prova de conceito para um longa ou minissérie. Um neuropsicólogo terminal abandona o próprio tratamento para imortalizar a história de uma jovem autodestrutiva, tentando salvá-la de um passado violento e do esquecimento absoluto.</p>
+      <p style="font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold);margin-bottom:1rem;border-left:2px solid var(--gold);padding-left:1rem;line-height:1.7">"Passei a vida estudando a memória. Demorei a descobrir que sua verdadeira função era impedir que certas pessoas morressem duas vezes."</p>
+      <p style="font-family:var(--mono);font-size:9px;color:var(--cyan);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem">// Pitch ativo · Trilha original · Banda própria · Bíblia completa</p>
+      <div class="av-tags">
+        <span class="av-tag">Conto original</span>
+        <span class="av-tag">Roteiro</span>
+        <span class="av-tag">Trilha 60+ faixas</span>
+        <span class="av-tag">Netflix</span>
+        <span class="av-tag">Globoplay</span>
+        <span class="av-tag">Max</span>
+      </div>
+      <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="av-link cyan">Entrar no universo ↗</a>
+    </div>
+    <div class="av-card tec">
+      <div class="av-num">02 · FICÇÃO CIENTÍFICA · SÉRIE LIMITADA</div>
+      <div class="av-titulo red">O Tecido Invisível do Nada</div>
+      <div class="av-formato">6 Episódios · Bíblia completa · ARG ativo</div>
+      <p class="av-desc">Uma neurocientista com Alzheimer precoce descobre que uma grande corporação usa controle neural para escravizar bilhões em um loop de atenção digital. Para libertar o mundo, ela precisa abraçar o próprio esquecimento.</p>
+      <div class="av-tags">
+        <span class="av-tag">Memória</span><span class="av-tag">Tecnologia</span><span class="av-tag">Raça</span><span class="av-tag">Resistência</span>
+      </div>
+      <a href="https://chronoscorp-inc.github.io/" target="_blank" class="av-link red">Acessar universo ↗</a>
+    </div>
+    <div class="av-card zeus">
+      <div class="av-num">03 · FICÇÃO CIENTÍFICA · SÉRIE</div>
+      <div class="av-titulo gold">Zeus-Mor</div>
+      <div class="av-formato">6 Episódios · Bíblia completa · Pitch deck</div>
+      <p class="av-desc">Um padre cria uma IA a partir das bases emocionais e intelectuais de uma jornalista e um arquiteto nigeriano. À medida que a IA evolui, as fronteiras entre criação e criador desaparecem. Fé, consciência e o que nos torna humanos.</p>
+      <div class="av-tags">
+        <span class="av-tag">IA</span><span class="av-tag">Filosofia</span><span class="av-tag">Fé</span><span class="av-tag">Identidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRILHA -->
+<section id="trilha" class="trilha-bg">
+  <div class="s-eyebrow" style="color:var(--pink)">Música · Universo Próprio</div>
+  <h2 style="color:var(--pink)">Sad Stink</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--pink),transparent)"></div>
+  <div class="trilha-grid">
+    <div class="trilha-info">
+      <p class="trilha-desc">A Sad Stink surgiu como princípio formador do interior musical do universo BTD — e cresceu além disso. Tem seu próprio mundo, sua própria linguagem, sua própria mitologia. Não é trilha sonora de uma história: é uma história que acontece em som.</p>
+      <p class="trilha-desc">60+ faixas que atravessam rock, jazz, blues, pop e ópera — Nessun Dorma, La Traviata, Carmina Burana como pilares clássicos, ao lado de composições originais que existem no BTD e fora dele.</p>
+      <p style="font-family:var(--mono);font-size:10px;color:var(--ink3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem">Ouça</p>
+      <div class="trilha-musicas">
+        <a href="https://www.youtube.com/watch?v=Wy24MO33fvE" target="_blank" class="musica-link">Just Gone — Faixa Primogênita</a>
+        <a href="https://www.youtube.com/watch?v=g_iRaCtYeYM" target="_blank" class="musica-link">Museu de Mentiras</a>
+        <a href="https://www.youtube.com/watch?v=VOT4iOEzUUU" target="_blank" class="musica-link">Faixa 3</a>
+      </div>
+      <a href="https://www.instagram.com/sadstinkband/" target="_blank" style="font-family:var(--mono);font-size:10px;color:var(--pink);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,45,138,0.3)">@sadstinkband ↗</a>
+    </div>
+    <div>
+      <img src="lunakiara.png" alt="Sad Stink" style="width:100%;object-fit:cover;border:1px solid rgba(255,45,138,0.2);filter:drop-shadow(0 0 30px rgba(255,45,138,0.4))">
+    </div>
+  </div>
+  <div style="margin-top:2rem">
+    <div class="trilha-player">
+      <iframe src="https://www.youtube.com/embed/Wy24MO33fvE?rel=0&color=white" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Just Gone — Sad Stink"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- LITERATURA -->
+<section id="literatura" class="lit-bg">
+  <div class="s-eyebrow" style="color:var(--gold)">Produção Literária</div>
+  <h2 style="color:var(--gold)">Literatura</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--gold),transparent)"></div>
+  <div class="lit-grid">
+    <div class="lit-card">
+      <div class="lit-tipo">Contos · Caravana Grupo Editorial · 2025</div>
+      <div class="lit-titulo">O Fio Tênue</div>
+      <p class="lit-desc">21 contos sobre os que vivem pela metade e ainda assim insistem. Fortaleza como pano de fundo e como ferida.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
+        <span class="lit-status s-ok">Publicado</span>
+        <a href="https://caravanagrupoeditorial.com/livros/o-fio-tenue/" target="_blank" class="lit-link">Comprar ↗</a>
+      </div>
+    </div>
+    <div class="lit-card">
+      <div class="lit-tipo">Romance · Em revisão</div>
+      <div class="lit-titulo">O Inventário das Ruínas Vivas</div>
+      <p class="lit-desc">Um professor sofrendo de uma rara doença faz um inventário da própria existência e da humanidade para salvá-la de uma tragédia. Em adaptação para roteiro.</p>
+      <div style="margin-top:1rem"><span class="lit-status s-ativo">Em revisão · Adaptação audiovisual</span></div>
+    </div>
+    <div class="lit-card">
+      <div class="lit-tipo">Romance · Clube de Autores · 2013</div>
+      <div class="lit-titulo">Sempre É Muito Tempo</div>
+      <p class="lit-desc">Entre as falsas ilusões do amor e a certeza silenciosa da finitude, descobrimos que a eternidade cabe no instante em que nos encaramos de verdade.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
+        <span class="lit-status s-ok">Publicado</span>
+        <a href="https://www.amazon.com.br/Sempre-Muito-Tempo-Lucien-Louren%C3%A7o/dp/B09X6WWWKC" target="_blank" class="lit-link">Amazon ↗</a>
+      </div>
+    </div>
+    <div class="lit-card">
+      <div class="lit-tipo">Livro Acadêmico · Em construção</div>
+      <div class="lit-titulo">Entre Algoritmos, Memória e Colonialidade</div>
+      <p class="lit-desc">Subjetividades negras, epistemicídio e produção discursiva no contemporâneo. História · Sociologia · Análise crítica.</p>
+      <div style="margin-top:1rem"><span class="lit-status s-ativo">Em construção</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAGENS -->
+<section class="chars-bg">
+  <div class="s-eyebrow" style="color:var(--blue)">Born to Die</div>
+  <h2>Personagens</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--blue),transparent)"></div>
+  <div class="chars-grid">
+    <div class="char-card char-gabriel">
+      <div class="char-nome blue">Gabriel</div>
+      <div class="char-idade">40 anos · Neuropsicólogo</div>
+      <div class="char-arquetipo">O Guardião Intelectual</div>
+      <p class="char-desc">Homem negro, 40 anos, cabeça raspada, cavanhaque desenhado. Terno azul-marinho no início, debilitado ao fim. Enxerga na literatura a única vitória real contra a morte: a permanência na memória.</p>
+    </div>
+    <div class="char-card char-helena">
+      <div class="char-nome green">Helena</div>
+      <div class="char-idade">23 anos · Sobrevivente</div>
+      <div class="char-arquetipo">A Sobrevivente Ferida</div>
+      <p class="char-desc">Jovem de 23 anos, traços finos, ascendência indígena e árabe. Marcas de automutilação nos pulsos. Desabrocha ao descobrir o poder acolhedor das palavras e da leitura.</p>
+    </div>
+    <div class="char-card char-romualdo">
+      <div class="char-nome red">Rikson</div>
+      <div class="char-idade">30 anos · Antagonista</div>
+      <div class="char-arquetipo">O Fantasma do Passado</div>
+      <p class="char-desc">Personifica a ameaça externa e o barulho violento da rua. O homem que usou as fraquezas de Helena para controlá-la — e que retorna para destruir o que Gabriel construiu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section class="mercado-bg">
+  <div class="s-eyebrow">Para Produtoras & Parceiros</div>
+  <h2>Mercado</h2>
+  <div class="divider" style="background:linear-gradient(90deg,var(--cyan),transparent)"></div>
+  <div class="mercado-grid">
+    <div class="mercado-item">
+      <div class="mercado-label">Formato Born to Die</div>
+      <div class="mercado-value">Curta · Longa · Minissérie</div>
+    </div>
+    <div class="mercado-item">
+      <div class="mercado-label">Plataformas-alvo</div>
+      <div class="mercado-value">Netflix · Max · Globoplay</div>
+    </div>
+    <div class="mercado-item">
+      <div class="mercado-label">Festivais</div>
+      <div class="mercado-value">Cinema independente · FRAPA</div>
+    </div>
+    <div class="mercado-item">
+      <div class="mercado-label">Status</div>
+      <div class="mercado-value">Pitch · POC disponível</div>
+    </div>
+  </div>
+  <blockquote class="mercado-quote">
+    "Como impedir que alguém desapareça completamente?"
+  </blockquote>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="contato-bg">
+  <div class="contato-inner">
+    <div class="s-eyebrow" style="justify-content:center;color:var(--purple)">Pitch & Parcerias</div>
+    <h2>Entre em contato</h2>
+    <div class="divider" style="background:linear-gradient(90deg,transparent,var(--purple),transparent)"></div>
+    <p style="color:var(--ink2);line-height:1.85">Para pitches, co-produções audiovisuais, parcerias editoriais, musicais ou qualquer projeto do universo BTD.</p>
+    <div class="contato-emails">
+      <a href="mailto:btd.digitaluniverse@gmail.com" class="contato-email btd">btd.digitaluniverse@gmail.com</a>
+      <a href="mailto:lucienlourenco@gmail.com" class="contato-email">lucienlourenco@gmail.com</a>
+    </div>
+    <div class="contato-links">
+      <a href="https://www.youtube.com/@BTDUniverse21" target="_blank" class="contato-link">YouTube BTD</a>
+      <a href="https://www.instagram.com/btddigital.universe/" target="_blank" class="contato-link">Instagram BTD</a>
+      <a href="https://www.instagram.com/sadstinkband/" target="_blank" class="contato-link">Sad Stink</a>
+      <a href="https://www.tiktok.com/@lucianlourencol" target="_blank" class="contato-link">TikTok</a>
+      <a href="https://lucienlourenco-cloud.github.io/" target="_blank" class="contato-link">Portfólio Pessoal</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2024–2026 <span>Lucian Lourenço</span> · BTD Universe · PI Registrada · Navoctoris</span>
+  <span class="footer-text">Fortaleza, Ceará · Brasil</span>
+</footer>
+
+<script>
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
