@@ -506,7 +506,7 @@
         </div>
         <div class="dado">
           <div class="dado-rotulo">Publicações</div>
-          <p><em>Sempre É Muito Tempo</em> (2013)<br>Conto em Portal Literal da Terra (2007)<br><em>O Fio Tênue</em> (no prelo — Caravana Grupo Editorial)</p>
+          <p><em>Sempre É Muito Tempo</em> (2013)<br>Conto em Portal Literal da Terra (2007)<br><em>O Fio Tênue</em> (2026. Caravana Grupo Editorial)</p>
         </div>
         <div class="dado">
           <div class="dado-rotulo">Colaborações</div>
@@ -529,7 +529,7 @@
       <div class="frente">
         <div class="frente-num">01</div>
         <h3>Escritor & Roteirista</h3>
-        <p>Contos, romances, séries e roteiros para cinema e televisão. Selecionado para o FRAPA. Submetendo ao Sol em Cena / Ibermedia.</p>
+        <p>Contos, romances, séries e roteiros para cinema e televisão. Selecionado para o FRAPA. Submetendo ao Rodada de Negócios 2026/ Max Sebrea Roda de Negócios.</p>
       </div>
       <div class="frente">
         <div class="frente-num">02</div>
@@ -544,7 +544,7 @@
       <div class="frente">
         <div class="frente-num">04</div>
         <h3>Produtor de Conteúdo Digital</h3>
-        <p>Universos transmídia, ARG, canais de reflexão sobre IA e sociedade. Criador de @abolhadaia e do universo Chronos Corp.</p>
+        <p>Universos transmídia, ARG, canais de reflexão sobre IA, produção de subjetividade e sociedade. Criador de @abolhadaia e do BTD Universe. Griô de Born to Die Project (series/feature film). Compositor, produtor executivo e manager da banda SadStink .</p>
       </div>
     </div>
   </div>
@@ -564,11 +564,11 @@
 
       <div class="obra">
         <div>
-          <div class="obra-tipo">Romance · Transmídia · Longa-metragem</div>
-          <div class="obra-titulo">Born to Die — O Homem Que Estudava Memórias</div>
-          <p class="obra-desc">Gabriel, neuropsicólogo na casa dos 40 com diagnóstico terminal, e Helena, sobrevivente de 23 anos com passado difícil. Núcleo temático: memória, testemunho, escrita como resistência ao desaparecimento. Trilha com mais de 60 faixas originais. Submetido ao Sol em Cena / Porto Iracema das Artes / Ibermedia.</p>
+          <div class="obra-tipo">Roteiro · Transmídia · Series. Longa-metragem</div>
+          <div class="obra-titulo">Born to Die</div>
+          <p class="obra-desc">Gabriel, negro, polímata, neuropsicólogo, com diagnóstico terminal de câncer, decide alterar sua trajetória para amparar e cuidar de Helena, jovem de ascendência árabe e indígena, sobrevivente da violência urbanda e do esmagamento psicossocial de seu passado e presente. Núcleo temático: memória, legado, escrita como resistência ao desaparecimento. Trilha com mais de 60 faixas originais (com letras e isntrumentais, todas registradas internacionalemnte e blindadas pelo block chain Avctoris. Submetido Roda de Negócios de Novembro 2026 (São Paulo) e MAX SEBRAE Rodada de Negócios Audivisuais (MInas Gerais, Novembro 2026)</p>
         </div>
-        <span class="obra-status status-selecao">Edital Sol em Cena</span>
+        <span class="obra-status status-selecao">Edital Rodada de Negócios - Roteiros e Narrativas 2026 e Rodada de Negócios MAX SEBRA 2026</span>
       </div>
 
       <div class="obra">
@@ -577,7 +577,7 @@
           <div class="obra-titulo">O Fio Tênue</div>
           <p class="obra-desc">21 contos em três seções: <em>A Carne do Mundo</em>, <em>Os que Ficam</em>, <em>O Fio Tênue</em>. Contrato assinado com a Caravana Grupo Editorial (editor Leonardo Costaneto). Capa: fio laranja, Pixabay.</p>
         </div>
-        <span class="obra-status status-lancamento">No prelo</span>
+        <span class="obra-status status-lancamento">Publicada e lançada em julho 2026</span>
       </div>
 
       <div class="obra">
@@ -593,7 +593,7 @@
         <div>
           <div class="obra-tipo">Minissérie · Sci-Fi · ARG</div>
           <div class="obra-titulo">O Tecido Invisível do Nada — Chronos Corp</div>
-          <p class="obra-desc">Em um mundo onde as Big Techs prendem a humanidade em loops de memória via V-Chronos, uma neurocientista negra com Alzheimer e um primata cyborg chamado Babel são a única chave para colapsar o Simulador Primal. 4 episódios. Site ARG ativo em chronoscorp-inc.github.io.</p>
+          <p class="obra-desc">Em um mundo onde as Big Techs prendem a humanidade em loops de memória via V-Chronos, uma neurocientista negra com Alzheimer e um primata cyborg chamado Babel são a única chave para colapsar o Simulador Primal. 6 episódios. Site ARG ativo em chronoscorp-inc.github.io.</p>
         </div>
         <span class="obra-status status-em-curso">Em produção</span>
       </div>
