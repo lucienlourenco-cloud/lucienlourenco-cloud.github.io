@@ -167,7 +167,8 @@ h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,5vw,4rem);lin
 .char-arquetipo{font-family:var(--mono);font-size:10px;color:var(--ink2);margin-bottom:1.2rem;padding:0.5rem 0.8rem;background:rgba(255,255,255,0.03);border-left:2px solid}
 .char-gabriel .char-arquetipo{border-color:var(--blue)}
 .char-helena .char-arquetipo{border-color:var(--green)}
-.char-romualdo .char-arquetipo{border-color:var(--red)}
+.char-rikson .char-arquetipo{border-color:var(--red)}
+.char-lineu  .char-arquetipo{border-color:var(--dark grey)}
 .char-desc{font-size:0.9rem;color:var(--ink2);line-height:1.8}
 
 /* MERCADO */
@@ -249,7 +250,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
       <a href="#audiovisual" class="btn btn-pink">Projetos</a>
       <a href="#contato" class="btn btn-gold">Pitch & Contato</a>
     </div>
-    <div class="hero-pi">© 2024–2026 Lucian Lourenço · PI Registrada · Navoctoris · Todos os direitos reservados</div>
+    <div class="hero-pi">© 2024–2026 Lucian Lourenço · PI Registrada · Avctoris · Todos os direitos reservados</div>
   </div>
 </section>
 
@@ -265,7 +266,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
     O BTD cresceu de forma inevitável. Suas raízes estão em cada texto, cada perda, cada descoberta. E agora se expande como algo novo, atravessador, potente e único — um universo transmídia onde cada linguagem é um fio do mesmo tecido invisível.
   </p>
   <p class="eixos-intro" style="border-left-color:var(--cyan);margin-top:-2rem">
-    <em>Born to Die</em>, <em>O Tecido Invisível do Nada</em> e <em>Zeus-Mor</em> são os pilares audiovisuais — mas o universo se expande por música original, literatura, pesquisa acadêmica, HQ, games e linguagem digital. Cada linguagem é uma entrada para o mesmo mundo.
+    <em>Born to Die</em>, <em>O Tecido Visível do Nada</em> e <em>Zeus-Mor</em> são os pilares audiovisuais — mas o universo se expande por música original, literatura, pesquisa acadêmica, HQ, games e linguagem digital. Cada linguagem é uma entrada para o mesmo mundo.
   </p>
   <p class="eixos-intro" style="border-left-color:var(--pink);margin-top:-2rem">
     As conexões do universo BTD não foram planejadas — foram descobertas. Os roteiros carregam no seu DNA conceitos de neurociência, psicologia social e simbologias que emergem de anos de pesquisa acadêmica. Não como ilustração — como substância. A memória que um personagem perde é a mesma que os estudos científicos tentam mapear. O luto que move uma narrativa é o mesmo que a psicologia social nomeia. A dor que vira música é a mesma que o ensaio acadêmico analisa.<br><br>
@@ -275,7 +276,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
     <div class="eixo mus">
       <div class="eixo-icon">🎵</div>
       <div class="eixo-titulo">Música</div>
-      <p class="eixo-desc">Sad Stink. 60+ faixas originais. Trilha diegética do universo — rock, jazz, blues, pop. Just Gone · Museu de Mentiras · e mais.</p>
+      <p class="eixo-desc">SadStink. 60+ faixas originais. Postgrunge. Operístico. Gothic. HipHop. Jazz. Blues. Trilha diegética do universo. Todas disponíveis nos streamings como Spotify e vídeos e teasers da Serie (Pitching) no YouTube. 01 album e um EP oficias da se´rie· Museu de Mentiras · e mais.</p>
     </div>
     <div class="eixo lit">
       <div class="eixo-icon">📖</div>
@@ -285,7 +286,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
     <div class="eixo av">
       <div class="eixo-icon">🎬</div>
       <div class="eixo-titulo">Audiovisual</div>
-      <p class="eixo-desc">Três universos interconectados: Born to Die, O Tecido Invisível do Nada e Zeus-Mor. Drama, ficção científica e thriller psicológico.</p>
+      <p class="eixo-desc">Três universos interconectados: Born to Die, O Tecido Visível do Nada e Zeus-Mor. Drama, ficção científica e thriller psicológico.</p>
     </div>
     <div class="eixo pes">
       <div class="eixo-icon">🔬</div>
@@ -325,7 +326,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
     </div>
     <div class="av-card tec">
       <div class="av-num">02 · FICÇÃO CIENTÍFICA · SÉRIE LIMITADA</div>
-      <div class="av-titulo red">O Tecido Invisível do Nada</div>
+      <div class="av-titulo red">O Tecido Visível do Nada</div>
       <div class="av-formato">6 Episódios · Bíblia completa · ARG ativo</div>
       <p class="av-desc">Uma neurocientista com Alzheimer precoce descobre que uma grande corporação usa controle neural para escravizar bilhões em um loop de atenção digital. Para libertar o mundo, ela precisa abraçar o próprio esquecimento.</p>
       <div class="av-tags">
@@ -380,7 +381,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
   <div class="divider" style="background:linear-gradient(90deg,var(--gold),transparent)"></div>
   <div class="lit-grid">
     <div class="lit-card">
-      <div class="lit-tipo">Contos · Caravana Grupo Editorial · 2025</div>
+      <div class="lit-tipo">Contos · Caravana Grupo Editorial · 2026</div>
       <div class="lit-titulo">O Fio Tênue</div>
       <p class="lit-desc">21 contos sobre os que vivem pela metade e ainda assim insistem. Fortaleza como pano de fundo e como ferida.</p>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
@@ -430,7 +431,7 @@ footer{padding:2rem 4rem;border-top:1px solid rgba(155,77,255,0.1);display:flex;
       <div class="char-arquetipo">A Sobrevivente Ferida</div>
       <p class="char-desc">Jovem de 23 anos, traços finos, ascendência indígena e árabe. Marcas de automutilação nos pulsos. Desabrocha ao descobrir o poder acolhedor das palavras e da leitura.</p>
     </div>
-    <div class="char-card char-romualdo">
+    <div class="char-card char-rikson">
       <div class="char-nome red">Rikson</div>
       <div class="char-idade">30 anos · Antagonista</div>
       <div class="char-arquetipo">O Fantasma do Passado</div>
